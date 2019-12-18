@@ -1,6 +1,6 @@
 package jdbc;
 
-import util.JDBCUtils;
+import util.JDBCUtils_old;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -27,7 +27,7 @@ public class JDBC_login {
         Statement sta = null;
         ResultSet rs = null;
         try {
-            con = JDBCUtils.getConnection();
+            con = JDBCUtils_old.getConnection();
             sta = con.createStatement();
             String sql = "select * from people where name = '"+name+"' and password = '"+password+"'";
             rs = sta.executeQuery(sql);
@@ -36,7 +36,7 @@ public class JDBC_login {
             e.printStackTrace();
         }
         finally {
-            JDBCUtils.close(rs,sta,con);
+            JDBCUtils_old.close(rs,sta,con);
         }
         return false;
     }

@@ -1,7 +1,6 @@
 package jdbc;
 
-import com.mysql.cj.jdbc.JdbcConnection;
-import util.JDBCUtils;
+import util.JDBCUtils_old;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -14,7 +13,7 @@ public class JDBC_test2 {
 
         try {
             //获取连接
-            con = JDBCUtils.getConnection();
+            con = JDBCUtils_old.getConnection();
             //定义sql
             String sql1 = "update money set money = money - ? where id = ?";
             String sql2 = "update money set money = money + ? where id = ?";
@@ -34,8 +33,8 @@ public class JDBC_test2 {
         }
         finally {
             //释放资源
-            JDBCUtils.close(presta1,con);
-            JDBCUtils.close(presta2,null);
+            JDBCUtils_old.close(presta1,con);
+            JDBCUtils_old.close(presta2,null);
         }
 
     }

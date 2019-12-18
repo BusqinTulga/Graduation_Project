@@ -1,6 +1,6 @@
 package jdbc;
 
-import util.JDBCUtils;
+import util.JDBCUtils_old;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,7 +14,7 @@ public class JDBC_test3 {
 
         try {
             //获取连接
-            con = JDBCUtils.getConnection();
+            con = JDBCUtils_old.getConnection();
             //开启事务
             con.setAutoCommit(false);
             //定义sql
@@ -47,8 +47,8 @@ public class JDBC_test3 {
         }
         finally {
             //释放资源
-            JDBCUtils.close(presta1,con);
-            JDBCUtils.close(presta2,null);
+            JDBCUtils_old.close(presta1,con);
+            JDBCUtils_old.close(presta2,null);
         }
 
     }

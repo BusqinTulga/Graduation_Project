@@ -1,6 +1,6 @@
 package jdbc;
 
-import util.JDBCUtils;
+import util.JDBCUtils_old;
 
 import java.sql.*;
 import java.util.Scanner;
@@ -26,7 +26,7 @@ public class JDBC_login1 {
         PreparedStatement presta = null;
         ResultSet rs = null;
         try {
-            con = JDBCUtils.getConnection();
+            con = JDBCUtils_old.getConnection();
             String sql = "select * from people where name = ? and password = ?";
             presta = con.prepareStatement(sql);
             presta.setString(1,name);
@@ -37,7 +37,7 @@ public class JDBC_login1 {
             e.printStackTrace();
         }
         finally {
-            JDBCUtils.close(rs,presta,con);
+            JDBCUtils_old.close(rs,presta,con);
         }
         return false;
     }

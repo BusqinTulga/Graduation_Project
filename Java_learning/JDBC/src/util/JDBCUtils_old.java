@@ -1,37 +1,39 @@
 package util;
 
-import com.alibaba.druid.pool.DruidDataSourceFactory;
-
-import javax.sql.DataSource;
+import java.io.FileReader;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.net.URL;
+import java.sql.*;
 import java.util.Properties;
 
-//Druid连接池的工具类
-public class JDBCUtils {
-    //定义成员变量DataSource
-    private static DataSource ds;
+public class JDBCUtils_old {
+    private static String url;
+    private static String user;
+    private static String password;
+    private static String driver;
     static {
         try {
-            //1.加载配置文件
             Properties pro = new Properties();
-            pro.load(JDBCUtils.class.getClassLoader().getResourceAsStream("druid.properties"));
-            //2.获取Datasource
-            ds = DruidDataSourceFactory.createDataSource(pro);
+            ClassLoader classLoader = JDBCUtils_old.class.getClassLoader();
+            URL res = classLoader.getResource("jdbc.properties");
+            String path = res.getPath();
+            System.out.println(path);
+            //path= URLDecoder.decode(path,"UTF-8");
+            pro.load(new FileReader(path));
+            url = pro.getProperty("url");
+            user = pro.getProperty("user");
+            password = pro.getProperty("password");
+            driver = pro.getProperty("driver");
+            Class.forName(driver);
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (Exception e) {
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
-    //获取连接
     public static Connection getConnection() throws SQLException {
-        return ds.getConnection();
+        return DriverManager.getConnection(url,user,password);
     }
-    //释放资源
     public static void close(Statement sta, Connection con) {
         if(sta != null) {
             try {
@@ -70,9 +72,5 @@ public class JDBCUtils {
                 e.printStackTrace();
             }
         }
-    }
-    //获取连接池方法
-    public static DataSource getDataSource() {
-        return ds;
     }
 }
