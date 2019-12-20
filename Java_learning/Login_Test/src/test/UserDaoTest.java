@@ -8,7 +8,7 @@ public class UserDaoTest {
     @Test
     public void testLogin() {
         User loginuser = new User();
-        loginuser.setName("图力嘎");
+        loginuser.setName("tuliga");
         loginuser.setPassword("tuliga123");
 
         UserDao dao = new UserDao();

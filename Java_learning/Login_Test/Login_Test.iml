@@ -17,7 +17,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.29" level="application_server_libraries" />
-    <orderEntry type="library" name="Login_Test_lib" level="project" />
-    <orderEntry type="library" name="Login_Test_web_lib" level="project" />
+    <orderEntry type="library" name="spring-tx-4.3.18.RELEASE" level="project" />
+    <orderEntry type="library" name="libs" level="project" />
   </component>
 </module>

@@ -8,9 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>�������˳ɹ�һ�ΰ�T^T</title>
+    <title>index.jsp</title>
   </head>
   <body>
-  666
+  求求您了成功一次吧！！！！！！！！！
   </body>
 </html>
