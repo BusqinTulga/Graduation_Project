@@ -1,4 +1,4 @@
-# graduation_project
+# Graduation_Project
 实验室管理系统
 
 2019/12/18：
