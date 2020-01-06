@@ -4,27 +4,72 @@
     <meta charset="UTF-8">
     <title>实验室管理系统</title>
     <style>
+        .clearfix:after{
+            content:"";
+            display:block;
+            clear:both;}
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .top {
+            background: darkgray;
+            height: 25px;
+        }
         header {
             background: pink;
             border: black solid 1px;
+            margin: auto;
+            width: 1000px;
             height: 75px;
+        }
+        .daohang {
+            border: black solid 1px;
+            margin: auto;
+            width: 1000px;
+            text-align: center;
         }
         p {
             border: black solid 1px;
+        }
+        ul {
+            border: #00ff00 solid 1px;
+            text-align: center;
+            list-style: none;
+            float: left;
+        }
+        ul li {
+            border: black solid 1px;
+            background: aquamarine;
+            width: 100px;
+            float: left;
+        }
+        ul li a {
+            display: block;
+
         }
     </style>
 </head>
 
 <body>
+    <div class="top">
+        <p>您好</p>
+    </div>
+
     <header>
         Logo
     </header>
 
-    <div>
+    <div class="daohang clearfix">
         <ul>
-            <li>1</li>
-
-            <li>1</li>
+            <li><a href="">首页</a></li>
+            <li><a href="">1</a></li>
+            <li><a href="">2</a></li>
+            <li><a href="">3</a></li>
+            <li><a href="">4</a></li>
+            <li><a href="">5</a></li>
+            <li><a href="">6</a></li>
+            <li><a href="">联系我们</a></li>
         </ul>
     </div>
 </body>
