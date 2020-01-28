@@ -14,7 +14,6 @@
         }
         .top {
             background: darkgray;
-            height: 25px;
         }
         header {
             background: pink;
@@ -25,7 +24,8 @@
         }
         .daohang {
             border: black solid 1px;
-            margin: auto;
+            margin: 0 auto;
+            height: 23px;
             width: 1000px;
             text-align: center;
         }
@@ -33,20 +33,26 @@
             border: black solid 1px;
         }
         ul {
-            border: #00ff00 solid 1px;
-            text-align: center;
+            margin: 0 auto;
             list-style: none;
-            float: left;
+            display: inline-block;
         }
         ul li {
             border: black solid 1px;
-            background: aquamarine;
+            background: deepskyblue;
             width: 100px;
             float: left;
         }
-        ul li a {
-            display: block;
-
+        ul li a:hover {
+            background: orange;
+        }
+        .gundong {
+            border: black solid 1px;
+            height: 300px;
+            width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 300px;
         }
     </style>
 </head>
@@ -60,9 +66,9 @@
         Logo
     </header>
 
-    <div class="daohang clearfix">
+    <div class="daohang">
         <ul>
-            <li><a href="">首页</a></li>
+            <a href=""><li>首页</li></a>
             <li><a href="">1</a></li>
             <li><a href="">2</a></li>
             <li><a href="">3</a></li>
@@ -71,6 +77,9 @@
             <li><a href="">6</a></li>
             <li><a href="">联系我们</a></li>
         </ul>
+    </div>
+    <div class="gundong">
+        滚动宣传区
     </div>
 </body>
 </html>
