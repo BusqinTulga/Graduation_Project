@@ -4,52 +4,66 @@
     <meta charset="UTF-8">
     <title>实验室管理系统</title>
     <style>
-        .clearfix:after{
-            content:"";
-            display:block;
-            clear:both;}
         * {
-            padding: 0;
-            margin: 0;
+            margin:0;
+            padding:0;
         }
         .top {
             background: darkgray;
         }
+        .top p {
+            border: black solid 1px;
+        }
         header {
-            background: pink;
             border: black solid 1px;
             margin: auto;
-            width: 1000px;
-            height: 75px;
+            width: 1200px;
+            height: 100px;
+        }
+        header h1 {
+            display: inline-block;
+            text-align: center;
+            line-height: 102px;
+            margin: 0 220px 0 220px;
+        }
+        header img {
+            float: left;
+            width: 250px;
+            height: 100px;
         }
         .daohang {
             border: black solid 1px;
             margin: 0 auto;
-            height: 23px;
-            width: 1000px;
+            width: 1200px;
+            height: 30px;
             text-align: center;
         }
-        p {
-            border: black solid 1px;
-        }
         ul {
-            margin: 0 auto;
             list-style: none;
             display: inline-block;
+        }
+        ul a {
+            text-decoration: none;
+        }
+        ul a:visited {
+            color: black;
         }
         ul li {
             border: black solid 1px;
             background: deepskyblue;
-            width: 100px;
+            width: 110px;
+            height: 28px;
+            line-height: 28px;
             float: left;
         }
-        ul li a:hover {
+        ul li:hover {
             background: orange;
+            color: white;
         }
         .gundong {
             border: black solid 1px;
             height: 300px;
-            width: 1000px;
+            width: 1200px;
             margin: 0 auto;
             text-align: center;
             line-height: 300px;
@@ -58,28 +72,31 @@
 </head>
 
 <body>
-    <div class="top">
-        <p>您好</p>
-    </div>
+<div class="top">
+    <p>您好</p>
+</div>
 
-    <header>
-        Logo
-    </header>
+<header>
+    <h1>内蒙古师范大学机器人创新实验室</h1>
+    <img src="image/logo.jpg">
+</header>
 
-    <div class="daohang">
-        <ul>
-            <a href=""><li>首页</li></a>
-            <li><a href="">1</a></li>
-            <li><a href="">2</a></li>
-            <li><a href="">3</a></li>
-            <li><a href="">4</a></li>
-            <li><a href="">5</a></li>
-            <li><a href="">6</a></li>
-            <li><a href="">联系我们</a></li>
-        </ul>
-    </div>
-    <div class="gundong">
-        滚动宣传区
-    </div>
+<div class="daohang">
+    <ul>
+        <a href=""><li>首页</li></a>
+        <a href=""><li>1</li></a>
+        <a href=""><li>2</li></a>
+        <a href=""><li>3</li></a>
+        <a href=""><li>4</li></a>
+        <a href=""><li>5</li></a>
+        <a href=""><li>6</li></a>
+        <a href=""><li>联系我们</li></a>
+    </ul>
+</div>
+
+<div class="gundong">
+    滚动宣传区
+</div>
+
 </body>
 </html>
