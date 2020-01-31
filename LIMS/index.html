@@ -2,7 +2,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>实验室管理系统</title>
+    <title>内蒙古师范大学机器人创新实验室</title>
+    <link rel="stylesheet" href="css/index.css" type="text/css">
 
     <script language="Javascript" type="text/javascript">
         setInterval("timer.innerHTML=new Date().toLocaleString()");
@@ -12,75 +13,19 @@
     </script>
 
     <style>
-        * {
-            margin:0;
-            padding:0;
-        }
-        .top {
-            background: linear-gradient(gainsboro 0%,white 100%);
-            border-bottom: gainsboro solid 1px;
-        }
-        .top p {
-            width: 1200px;
-            height: 30px;
-            line-height: 30px;
-            margin: 0 auto;
-        }
-        .language {
-            margin-left: 740px;
-        }
-        .language a {
-            text-decoration: none;
-        }
-        header {
-            margin: auto;
-            width: 1200px;
-            height: 100px;
-        }
-        header h1 {
-            display: inline-block;
-            text-align: center;
-            line-height: 102px;
-            margin: 0 220px 0 220px;
-        }
-        header img {
-            float: left;
-            width: 250px;
-            height: 100px;
-        }
-        .daohang {
-            margin: 0 auto;
-            width: 1200px;
-            height: 37px;
-            text-align: center;
-        }
-        ul {
-            list-style: none;
-            display: inline-block;
-        }
-        ul a {
-            color: white;
-            font-family: "微软雅黑";
-        }
-        ul li {
-            border: black solid 1px;
-            background: #0066cc;
-            width: 130px;
-            height: 35px;
-            line-height: 35px;
-            float: left;
-        }
-        ul li:hover {
-            background: orange;
-            color: white;
-        }
         .gundong {
             border: black solid 1px;
             height: 400px;
-            width: 1200px;
-            margin: 0 auto;
+            margin: 15px 0;
             text-align: center;
             line-height: 400px;
+        }
+        .news {
+            border: black solid 1px;
+            height: 300px;
+            margin: 15px 0;
+            text-align: center;
+            line-height: 300px;
         }
     </style>
 </head>
@@ -102,20 +47,31 @@
 
 <div class="daohang">
     <ul>
-        <a href=""><li>首页</li></a>
-        <a href=""><li>实验室概况</li></a>
+        <a href="index.html"><li>首页</li></a>
+        <a href="sysjj.html"><li>实验室概况</li></a>
         <a href=""><li>研究方向</li></a>
-        <a href=""><li>人员介绍</li></a>
+        <a href="ryjs.html"><li>人员介绍</li></a>
         <a href=""><li>获奖成果</li></a>
         <a href=""><li>相关下载</li></a>
-        <a href=""><li>登录</li></a>
+        <a href="login.html"><li>登录</li></a>
         <a href=""><li>联系我们</li></a>
     </ul>
 </div>
 
-<div class="gundong">
-    滚动宣传区
+<div class="big">
+    <div class="gundong">
+        滚动宣传区
+    </div>
+
+    <div class="news">
+        新闻公告区
+    </div>
 </div>
 
+<footer>
+    <p>
+        版权所有 © 内蒙古师范大学机器人创新实验室
+    </p>
+</footer>
 </body>
 </html>
