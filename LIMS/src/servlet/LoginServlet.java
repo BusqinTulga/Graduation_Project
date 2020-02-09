@@ -1,6 +1,6 @@
 package servlet;
 
-import dao.UserDao;
+import dao.LoginUserDao;
 import domain.User;
 
 import javax.servlet.ServletException;
@@ -24,7 +24,7 @@ public class LoginServlet extends HttpServlet {
         loginUser.setName(name);
         loginUser.setPassword(password);
         //调用UserDao的login方法
-        UserDao dao = new UserDao();
+        LoginUserDao dao = new LoginUserDao();
         User user = dao.login(loginUser);
         //判断user
         if (user == null) {
