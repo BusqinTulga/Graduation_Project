@@ -1,11 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>成员信息</title>
+    <title>机器人创新实验室管理系统</title>
 
     <link rel="stylesheet" href="css/bace.css" type="text/css">
+    <link rel="stylesheet" href="css/manage.css" type="text/css">
 
     <script language="Javascript" type="text/javascript">
         setInterval("timer.innerHTML=new Date().toLocaleString()");
@@ -45,6 +47,19 @@
             background: orange;
             color: white;
         }
+        .cyxx_table table {
+            border-collapse: collapse;
+        }
+        .cyxx_table table th {
+            border: black solid 1px;
+            width: 80px;
+            padding: 5px 0;
+        }
+        .cyxx_table table td {
+            border: black solid 1px;
+            text-align: center;
+            padding: 5px 0;
+        }
     </style>
 </head>
 <body>
@@ -65,7 +80,7 @@
     <ul>
         <a href="manage.html"><li>首页</li></a>
         <a href=""><li>实验室信息管理</li></a>
-        <a href="/UserListServlet"><li>成员信息管理</li></a>
+        <a href="cyxx.html"><li>成员信息管理</li></a>
         <a href=""><li>4</li></a>
         <a href=""><li>5</li></a>
         <a href=""><li>申请审核</li></a>
@@ -73,5 +88,39 @@
     </ul>
 </div>
 
+<div class="cyxx_table">
+    <table>
+        <tr>
+            <th>编号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+            <th>籍贯</th>
+            <th>班级</th>
+            <th>邮箱</th>
+            <th>操作</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</div>
 </body>
 </html>
