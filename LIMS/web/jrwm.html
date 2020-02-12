@@ -39,13 +39,27 @@
          }
         .td_short {
             width: 60px;
+            height: 50px;
+        }
+        .td_short_plus {
+            width: 127px;
+            height: 50px;
         }
         .td_middle {
             width: 170px;
             height: 50px;
         }
+        #td_middle_plus {
+            width: 288px;
+            height: 50px;
+        }
+        #td_middle_plus input {
+            padding-left: 10px;
+            text-align: left;
+        }
         .td_long {
-            height: 100px;
+            width: 699px;
+            height: 150px;
         }
         #td_picture {
             width: 140px;
@@ -54,10 +68,43 @@
             outline: none;
             border: none;
             text-align: center;
-        }
-        .name {
             width: 100%;
             height: 100%;
+        }
+        .name {
+
+        }
+        .school {
+
+        }
+        #email {
+            width: 277px;
+            height: 50%;
+        }
+        #tel {
+            width: 277px;
+            height: 50%;
+        }
+        #aboutme {
+            display: block;
+            width: 100%;
+            height: 150px;
+            border: none;
+            resize: none;
+            outline: none;
+            font-size: 16px;
+            text-indent: 2em;
+        }
+        #reason {
+            display: block;
+            width: 100%;
+            height: 150px;
+            border: none;
+            resize: none;
+            outline: none;
+            font-size: 16px;
+            text-indent: 2em;
+            padding: 5px;
         }
         #submit {
             border: gainsboro solid 1px;
@@ -106,11 +153,11 @@
         <table>
             <tr>
                 <th>姓名</th>
-                <td class="td_middle"><input class="name" autocomplete="off" type="text" name="name"></input></td>
+                <td class="td_middle"><input class="name" autocomplete="off" type="text" name="name"/></td>
                 <th>性别</th>
-                <td class="td_short">null</td>
+                <td class="td_short"><input class="sex" autocomplete="off" type="text" name="sex"/></td>
                 <th>出生年月</th>
-                <td>null</td>
+                <td class="td_short_plus"><input class="birthday" autocomplete="off" type="text" name="birthday"/></td>
                 <th rowspan="4" id="td_picture">生活照</th>
             </tr>
             <tr>
@@ -118,23 +165,28 @@
                 <td colspan="5">null省/自治区null市null区/县</td>
             </tr>
             <tr><th>学院</th>
-                <td>null</td>
+                <td class="td_middle"><input class="school" autocomplete="off" type="text" name="school"/></td>
                 <th>年级</th>
-                <td class="td_short">null</td>
+                <td class="td_short"><input class="grade" autocomplete="off" type="text" name="grade"/></td>
                 <th>专业班级</th>
-                <td>null</td></tr>
+                <td class="td_short_plus"><input class="class" autocomplete="off" type="text" name="class"/></td>
+            </tr>
             <tr>
                 <th>学号</th>
-                <td class="td_short">null</td>
+                <td class="td_middle"><input class="number" autocomplete="off" type="text" name="number"/></td>
                 <th>联系方式</th>
-                <td colspan="3">邮箱 null 手机号 null</td>
+                <td id="td_middle_plus" colspan="3">
+                    <input id="email" autocomplete="off" type="text" name="email" placeholder="邮箱"/>
+                    <br>
+                    <input id="tel" autocomplete="off" type="text" name="tel" placeholder="手机号"/>
+                </td>
             </tr>
             <tr>
                 <th>自我简述</th>
-                <td colspan="6" class="td_long">null</td>
+                <td colspan="6" class="td_long"><textarea id="aboutme" maxlength="340"></textarea></td>
             </tr>
             <tr><th>入社理由</th>
-                <td colspan="6" class="td_long">null</td></tr>
+                <td colspan="6" class="td_long"><textarea id="reason" maxlength="340"></textarea></td></tr>
         </table>
         <input id="submit" type="submit" value="提交申请">
     </form>
