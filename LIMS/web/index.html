@@ -22,6 +22,10 @@
             text-align: center;
             line-height: 400px;
         }
+        .gundong img {
+            width: 100%;
+            height: 100%;
+        }
         .sidebar {
             background: orange;
             border-top-left-radius: 5px;
@@ -70,13 +74,13 @@
         <a href=""><li>相关下载</li></a>
         <a href="login.html"><li>登录</li></a>
         <a href="jrwm.html"><li>加入我们</li></a>
-        <a href=""><li>联系我们</li></a>
+        <a href="lxwm.html"><li>联系我们</li></a>
     </ul>
 </div>
 
 <div class="big">
     <div class="gundong">
-        滚动宣传区
+        <img id="gundong" src="image/test1.PNG">
     </div>
 
     <div class="news">
@@ -89,5 +93,18 @@
         版权所有 © 内蒙古师范大学机器人创新实验室
     </p>
 </footer>
+
+<script>
+    var num = 1;
+    function fun() {
+        var gundong = document.getElementById("gundong");
+        gundong.src = "image/test"+num+".PNG";
+        num++;
+        if (num == 4) {
+            num = 1;
+        }
+    }
+    setInterval(fun,1500);
+</script>
 </body>
 </html>
