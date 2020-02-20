@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>onclick</title>
+</head>
+<body>
+<img src="image/logo.jpg" id="logo">
+<script>
+
+
+    var logo = document.getElementById("logo");
+    var flag = false;
+    logo.onclick = function() {
+        if (flag == false) {
+            logo.src = "image/logo1.png";
+            flag = true;
+        }
+        else {
+            logo.src = "image/logo.jpg";
+            flag = false;
+        }
+    }
+
+</script>
+</body>
+</html>
