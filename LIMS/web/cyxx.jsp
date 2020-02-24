@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +7,6 @@
     <title>机器人创新实验室管理系统</title>
 
     <link rel="stylesheet" href="css/bace.css" type="text/css">
-    <link rel="stylesheet" href="css/manage.css" type="text/css">
 
     <script language="Javascript" type="text/javascript">
         setInterval("timer.innerHTML=new Date().toLocaleString()");
@@ -61,8 +60,25 @@
             padding: 5px 0;
         }
     </style>
+
+    <script>
+        function warning() {
+            var body = document.getElementById("body");
+            body.style.background = "red";
+        }
+
+        function deleteUser(id) {
+            var a = confirm("您确定要删除成员吗？")
+            if (a == true) {
+                window.setTimeout("var b = confirm(\"删除成员操作将不可挽回！\")", "50");
+                if(b == true) {
+                    location.href = "${pageContext.request.contextPath}/deleteUserServlet?id="+id;
+                }
+            }
+        }
+    </script>
 </head>
-<body>
+<body id="body">
 <div class="top">
     <p>欢迎访问，现在是
         <span id="timer"></span>
@@ -92,34 +108,30 @@
     <table>
         <tr>
             <th>编号</th>
+            <th>学号</th>
             <th>姓名</th>
             <th>性别</th>
             <th>年龄</th>
             <th>籍贯</th>
             <th>班级</th>
+            <th>手机号</th>
             <th>邮箱</th>
             <th>操作</th>
         </tr>
-        <tr>
-            <td>1</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+        <c:forEach items="${users}" var="user" varStatus="s">
+            <tr>
+                <td>${s.count}</td>
+                <td>${user.number}</td>
+                <td>${user.name}</td>
+                <td>${user.gender}</td>
+                <td>${user.age}</td>
+                <td>${user.address}</td>
+                <td>${user.classes}</td>
+                <td>${user.phone_number}</td>
+                <td>${user.email}</td>
+                <td><a href="javascript:deleteUser(${user.id});">删除</a></td>
+            </tr>
+        </c:forEach>
     </table>
 </div>
 </body>

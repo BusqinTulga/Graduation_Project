@@ -16,7 +16,7 @@ a {
     margin: 0 auto;
 }
 .language {
-    margin-left: 675px;
+    float: right;
 }
 header {
     margin: 0 auto;

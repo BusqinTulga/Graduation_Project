@@ -1,6 +1,5 @@
 package servlet;
 
-import domain.User;
 import service.implement.UserServiceImplement;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,22 +7,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
-//查询成员信息
-@WebServlet("/userListServlet")
-public class UserListServlet extends HttpServlet {
+//删除成员
+@WebServlet("/deleteUserServlet")
+public class DeleteUserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        //调用UserService接口完成查询
+        //获取id
+        String id = request.getParameter("id");
+
+        //调用UserService接口完成删除
         UserServiceImplement service = new UserServiceImplement();
-        List<User> users = service.findAll();
+        service.deleteUser(id);
 
-        //将List存入request域
-        request.setAttribute("users",users);
-
-        //3.转发到.jsp
-        request.getRequestDispatcher("/cyxx.jsp").forward(request,response);
+        //跳转到userListServlet
+        response.sendRedirect("/userListServlet");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

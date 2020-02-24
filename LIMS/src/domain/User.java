@@ -1,14 +1,19 @@
 package domain;
+
 //用户的JavaBean（实体类）
 public class User {
+
     private int id;
+    private String number;
     private String name;
-    private String sex;
-    private int age;
+    private String gender;
+    private String age;
     private String address;
     private String classes;
+    private String phone_number;
     private String email;
     private String password;
+    private String authoritiy;
 
     public int getId() {
         return id;
@@ -16,6 +21,14 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
     }
 
     public String getName() {
@@ -26,19 +39,19 @@ public class User {
         this.name = name;
     }
 
-    public String getSex() {
-        return sex;
+    public String getGender() {
+        return gender;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
@@ -58,6 +71,14 @@ public class User {
         this.classes = classes;
     }
 
+    public String getPhone_number() {
+        return phone_number;
+    }
+
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -74,17 +95,11 @@ public class User {
         this.password = password;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", sex='" + sex + '\'' +
-                ", age=" + age +
-                ", address='" + address + '\'' +
-                ", classes='" + classes + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+    public String getAuthoritiy() {
+        return authoritiy;
+    }
+
+    public void setAuthoritiy(String authoritiy) {
+        this.authoritiy = authoritiy;
     }
 }
