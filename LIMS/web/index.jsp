@@ -75,9 +75,10 @@
     <a href="jsjs.html"><li>人员介绍</li></a>
     <a href=""><li>获奖成果</li></a>
     <a href=""><li>相关下载</li></a>
-    <a href="login.html"><li>登录</li></a>
-    <a href="jrwm.html"><li>加入我们</li></a>
+    <a href="login.jsp"><li>登录</li></a>
+    <a href="jrwm.jsp"><li>加入我们</li></a>
     <a href="lxwm.html"><li>联系我们</li></a>
+    <a href="admin.jsp"><li>管理系统</li></a>
   </ul>
 </div>
 

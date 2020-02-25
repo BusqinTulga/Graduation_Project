@@ -22,4 +22,10 @@ public class UserServiceImplement implements UserService {
     public void deleteUser(String id) {
         dao.deleteUser(Integer.parseInt(id));
     }
+
+    //保存
+    @Override
+    public void addUser(User user) {
+        dao.addUser(user);
+    }
 }

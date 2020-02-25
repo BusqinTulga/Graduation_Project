@@ -11,4 +11,6 @@ public interface UserDao {
 
     //根据id删除成员
     void deleteUser(int parseInt);
+
+    void addUser(User user);
 }

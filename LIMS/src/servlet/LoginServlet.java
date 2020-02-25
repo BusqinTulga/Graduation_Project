@@ -33,8 +33,11 @@ public class LoginServlet extends HttpServlet {
         User user = dao.login(loginUser);
 
         //验证权限
-
-
+        int authoritiy = user.getAuthoritiy();
+        if (authoritiy == 2) {
+            //req.getRequestDispatcher("/admin.jsp").forward(req, resp);
+            resp.sendRedirect("admin.jsp");
+        }
         //判断user
         if (user == null) {
             //登录失败
@@ -50,7 +53,7 @@ public class LoginServlet extends HttpServlet {
             //转发
             //req.getRequestDispatcher("/successServlet").forward(req, resp);
             System.out.println(session);
-            //转发 重定向 回主页
+            //转发 回主页
             resp.sendRedirect("index.jsp");
         }
     }

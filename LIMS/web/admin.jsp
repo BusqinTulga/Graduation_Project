@@ -1,10 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>机器人创新实验室管理系统</title>
+    <title>成员信息</title>
 
     <link rel="stylesheet" href="css/bace.css" type="text/css">
 
@@ -46,36 +45,9 @@
             background: orange;
             color: white;
         }
-        .cyxx_table table {
-            border-collapse: collapse;
-            padding: 5px;
-        }
-        .cyxx_table table th {
-            border: black solid 1px;
-            width: 80px;
-            padding: 5px 0;
-        }
-        .cyxx_table table td {
-            border: black solid 1px;
-            text-align: center;
-            padding: 5px 0;
-        }
     </style>
-
-    <script>
-        function warning() {
-            var body = document.getElementById("body");
-            body.style.background = "red";
-        }
-
-        function deleteUser(id) {
-            if (confirm("您确定要删除成员吗？")) {
-                    location.href = "/deleteUserServlet?id="+id;
-            }
-        }
-    </script>
 </head>
-<body id="body">
+<body>
 <div class="top">
     <p>欢迎访问，现在是
         <span id="timer"></span>
@@ -99,39 +71,6 @@
         <a href="shsq.jsp"><li>审核申请</li></a>
         <a href=""><li>留言管理</li></a>
     </ul>
-</div>
-
-<div class="cyxx_table">
-    <table>
-        <tr>
-            <th>编号</th>
-            <th>学号</th>
-            <th>姓名</th>
-            <th>性别</th>
-            <th>年龄</th>
-            <th>籍贯</th>
-            <th>班级</th>
-            <th>手机号</th>
-            <th>邮箱</th>
-            <th>权限</th>
-            <th>操作</th>
-        </tr>
-        <c:forEach items="${users}" var="user" varStatus="s">
-            <tr>
-                <td>${s.count}</td>
-                <td>${user.number}</td>
-                <td>${user.name}</td>
-                <td>${user.gender}</td>
-                <td>${user.age}</td>
-                <td>${user.address}</td>
-                <td>${user.classes}</td>
-                <td>${user.phone_number}</td>
-                <td>${user.email}</td>
-                <td>${user.authoritiy}级</td>
-                <td><a href="javascript:deleteUser(${user.id});">删除</a></td>
-            </tr>
-        </c:forEach>
-    </table>
 </div>
 </body>
 </html>

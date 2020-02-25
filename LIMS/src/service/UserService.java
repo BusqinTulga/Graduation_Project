@@ -12,4 +12,6 @@ public interface UserService {
     //根据id删除成员
     void deleteUser(String id);
 
+    //保存
+    void addUser(User user);
 }
