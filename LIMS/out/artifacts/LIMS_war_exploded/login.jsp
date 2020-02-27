@@ -53,9 +53,11 @@
 <body>
 
 <div class="top">
-    <p>${user.name}你好，现在是
+    <p>欢迎访问，现在是
         <span id="timer"></span>
-        <a href="/logoutServlet">注销</a>
+        <span class="language">
+            <a href="">中文</a> / <a href="">English</a>
+        </span>
     </p>
 </div>
 

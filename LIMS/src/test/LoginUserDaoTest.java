@@ -1,18 +1,18 @@
 package test;
 
-import dao.LoginUserDao;
+import dao.implement.UserDaoImplement;
 import domain.User;
 import org.junit.Test;
 
 public class LoginUserDaoTest {
     @Test
     public void testLogin() {
-        User loginuser = new User();
-        loginuser.setName("tuliga");
-        loginuser.setPassword("tuliga123");
+        User user = new User();
+        user.setName("admin");
+        user.setPassword("admin");
 
-        LoginUserDao dao = new LoginUserDao();
-        User user = dao.login(loginuser);
+        UserDaoImplement userDaoImplement = new UserDaoImplement();
+        userDaoImplement.login(user);
 
         System.out.println(user);
     }

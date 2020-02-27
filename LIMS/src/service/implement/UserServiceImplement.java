@@ -10,6 +10,12 @@ public class UserServiceImplement implements UserService {
 
     private UserDao dao = new UserDaoImplement();
 
+    //登录
+    @Override
+    public User login(User loginUser) {
+        return dao.login(loginUser);
+    }
+
     //查询所有成员信息
     @Override
     public List<User> findAll() {

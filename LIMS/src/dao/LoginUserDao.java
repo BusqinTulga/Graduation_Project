@@ -23,10 +23,6 @@ public class LoginUserDao {
         } catch (EmptyResultDataAccessException e) {
             return null;
         }
-
-        String sql1 = "select authoritiy from user where name = ? and password = ?";
-        
-
         return user;
     }
 

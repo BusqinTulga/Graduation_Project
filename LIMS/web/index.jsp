@@ -6,7 +6,6 @@
   <title>内蒙古师范大学机器人创新实验室</title>
 
   <link rel="stylesheet" href="css/bace.css" type="text/css">
-  <link rel="stylesheet" href="css/index.css" type="text/css">
 
   <script language="Javascript" type="text/javascript">
     setInterval("timer.innerHTML=new Date().toLocaleString()");
@@ -58,7 +57,7 @@
         <a href="/logoutServlet">注销</a>
         <span class="language">
               <a href="">中文</a> / <a href="">English</a>
-          </span>
+        </span>
       </p>
 </div>
 
@@ -70,14 +69,14 @@
 <div class="daohang">
   <ul>
     <a href="index.jsp"><li>首页</li></a>
-    <a href="sysjj.html"><li>实验室概况</li></a>
+    <a href="sysjj.jsp"><li>实验室概况</li></a>
     <a href=""><li>研究方向</li></a>
-    <a href="jsjs.html"><li>人员介绍</li></a>
+    <a href="jsjs.jsp"><li>人员介绍</li></a>
     <a href=""><li>获奖成果</li></a>
     <a href=""><li>相关下载</li></a>
     <a href="login.jsp"><li>登录</li></a>
     <a href="jrwm.jsp"><li>加入我们</li></a>
-    <a href="lxwm.html"><li>联系我们</li></a>
+    <a href="lxwm.jsp"><li>联系我们</li></a>
     <a href="admin.jsp"><li>管理系统</li></a>
   </ul>
 </div>

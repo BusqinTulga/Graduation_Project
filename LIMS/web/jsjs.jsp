@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +16,7 @@
     </script>
 
     <style>
-        #li_sysjj {
+        #li_teacher {
             color: #0069cc;
             font-weight: bold;
         }
@@ -24,11 +25,9 @@
 
 <body>
 <div class="top">
-    <p>欢迎访问，现在是
+    <p>${user.name}你好，现在是
         <span id="timer"></span>
-        <span class="language">
-            <a href="">中文</a> / <a href="">English</a>
-        </span>
+        <a href="/logoutServlet">注销</a>
     </p>
 </div>
 
@@ -40,14 +39,14 @@
 <div class="daohang">
     <ul>
         <a href="index.jsp"><li>首页</li></a>
-        <a href="sysjj.html"><li>实验室概况</li></a>
+        <a href="sysjj.jsp"><li>实验室概况</li></a>
         <a href=""><li>研究方向</li></a>
-        <a href="jsjs.html"><li>人员介绍</li></a>
+        <a href="jsjs.jsp"><li>人员介绍</li></a>
         <a href=""><li>获奖成果</li></a>
         <a href=""><li>相关下载</li></a>
         <a href="login.jsp"><li>登录</li></a>
         <a href="jrwm.jsp"><li>加入我们</li></a>
-        <a href="lxwm.html"><li>联系我们</li></a>
+        <a href="lxwm.jsp"><li>联系我们</li></a>
     </ul>
 </div>
 
@@ -58,24 +57,23 @@
 
     <div class="weizhi">
         <p>
-            当前位置：<a href="index.jsp">首页</a> > <a href="sysjj.html">实验室概况</a> > 实验室简介
+            当前位置：<a href="index.jsp">首页</a> > <a href="jsjs.html">人员介绍</a> > 教师介绍
         </p>
     </div>
 
     <div class="main">
         <div class="list_left">
             <p id="li_head">
-                实验室概况
+                人员介绍
             </p>
             <ul>
-                <a href=""><li id="li_sysjj" class="li_item">实验室简介</li></a>
-                <a href=""><li class="li_item">发展历程</li></a>
-                <a href=""><li class="li_item">组织机构</li></a>
+                <a href=""><li id="li_teacher" class="li_item">教师</li></a>
+                <a href=""><li class="li_item">学生</li></a>
             </ul>
         </div>
 
         <div class="content_right">
-            <h3>实验室简介</h3>
+            <h3>教师介绍</h3>
             <span></span>
             <p>
                 内蒙古师范大学（Inner Mongolia Normal University）位于内蒙古自治区呼和浩特，是新中国成立后在边疆少数民族地区最早建

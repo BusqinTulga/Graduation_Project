@@ -77,8 +77,9 @@
 </head>
 <body id="body">
 <div class="top">
-    <p>欢迎访问，现在是
+    <p>${user.name}你好，现在是
         <span id="timer"></span>
+        <a href="/logoutServlet">注销</a>
     </p>
 </div>
 

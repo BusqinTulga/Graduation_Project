@@ -1,25 +1,31 @@
 package dao.implement;
 
-import dao.LoginUserDao;
 import dao.UserDao;
 import domain.User;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import util.JDBCUtils;
-
-import javax.sql.DataSource;
 import java.util.List;
-
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.Properties;
 
 public class UserDaoImplement implements UserDao {
 
     //使用jdbc操作数据库
     private JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
+
+    //登录方法
+    public User login(User loginUser) {
+        //编写sql
+        String sql = "select * from user where name = ? and password = ?";
+        User user = null;
+        try {
+            //调用query方法
+            user = template.queryForObject(sql, new BeanPropertyRowMapper<User>(User.class), loginUser.getName(), loginUser.getPassword());
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+        return user;
+    }
 
     //查询所有成员信息
     @Override
@@ -40,7 +46,7 @@ public class UserDaoImplement implements UserDao {
         template.update(sql, id);
     }
 
-    //保存
+    //申请表提交到数据库
     @Override
     public void addUser(User user) {
         //定义sql

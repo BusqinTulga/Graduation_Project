@@ -13,7 +13,7 @@ public class User {
     private String phone_number;
     private String email;
     private String password;
-    private int authoritiy;
+    private Integer authoritiy;
 
     public int getId() {
         return id;
@@ -95,11 +95,11 @@ public class User {
         this.password = password;
     }
 
-    public int getAuthoritiy() {
+    public Integer getAuthoritiy() {
         return authoritiy;
     }
 
-    public void setAuthoritiy(int authoritiy) {
+    public void setAuthoritiy(Integer authoritiy) {
         this.authoritiy = authoritiy;
     }
 }

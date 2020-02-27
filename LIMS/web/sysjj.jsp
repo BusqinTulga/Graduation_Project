@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,11 +25,9 @@
 
 <body>
 <div class="top">
-    <p>欢迎访问，现在是
+    <p>${user.name}你好，现在是
         <span id="timer"></span>
-        <span class="language">
-            <a href="">中文</a> / <a href="">English</a>
-        </span>
+        <a href="/logoutServlet">注销</a>
     </p>
 </div>
 
@@ -40,14 +39,14 @@
 <div class="daohang">
     <ul>
         <a href="index.jsp"><li>首页</li></a>
-        <a href="sysjj.html"><li>实验室概况</li></a>
+        <a href="sysjj.jsp"><li>实验室概况</li></a>
         <a href=""><li>研究方向</li></a>
-        <a href="jsjs.html"><li>人员介绍</li></a>
+        <a href="jsjs.jsp"><li>人员介绍</li></a>
         <a href=""><li>获奖成果</li></a>
         <a href=""><li>相关下载</li></a>
         <a href="login.jsp"><li>登录</li></a>
         <a href="jrwm.jsp"><li>加入我们</li></a>
-        <a href="lxwm.html"><li>联系我们</li></a>
+        <a href="lxwm.jsp"><li>联系我们</li></a>
     </ul>
 </div>
 
