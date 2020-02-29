@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>机器人创新实验室管理系统</title>
@@ -117,7 +117,7 @@
             <th>权限</th>
             <th>操作</th>
         </tr>
-        <c:forEach items="${users}" var="user" varStatus="s">
+        <c:forEach items="${member}" var="user" varStatus="s">
             <tr>
                 <td>${s.count}</td>
                 <td>${user.number}</td>
