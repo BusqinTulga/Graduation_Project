@@ -1,5 +1,6 @@
 package dao;
 
+import domain.Application;
 import domain.User;
 import java.util.List;
 
@@ -16,5 +17,11 @@ public interface UserDao {
     void deleteUser(int parseInt);
 
     //保存
-    void addUser(User user);
+    void addUser(Application application);
+
+    //查询申请的信息
+    List<Application> applyUser();
+
+    //拒绝加入
+    void applyDisagreed(int parseInt);
 }

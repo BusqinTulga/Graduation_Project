@@ -1,15 +1,13 @@
 package servlet;
 
-import domain.User;
+import domain.Application;
 import service.implement.UserServiceImplement;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Map;
 
 //成员申请
 @WebServlet("/addUserServlet")
@@ -22,12 +20,12 @@ public class AddUserServlet extends HttpServlet {
         String name = request.getParameter("name");
         String gender = request.getParameter("gender");
         //封装对象
-        User user = new User();
-        user.setName(name);
-        user.setGender(gender);
+        Application application = new Application();
+        application.setName(name);
+        application.setGender(gender);
         //调用service保存
         UserServiceImplement service = new UserServiceImplement();
-        service.addUser(user);
+        service.addUser(application);
         //提示信息
 
         //转发到.jsp

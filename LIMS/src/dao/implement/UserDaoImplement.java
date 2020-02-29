@@ -1,6 +1,7 @@
 package dao.implement;
 
 import dao.UserDao;
+import domain.Application;
 import domain.User;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -48,10 +49,29 @@ public class UserDaoImplement implements UserDao {
 
     //申请表提交到数据库
     @Override
-    public void addUser(User user) {
+    public void addUser(Application application) {
         //定义sql
-        String sql = "insert into user values(null,null,?,?,null,null,null,null,null,null,null)";
+        String sql = "insert into application values(null,null,?,?,null,null,null,null,null)";
         //执行sql
-        template.update(sql, user.getName(), user.getGender());
+        template.update(sql, application.getName(), application.getGender());
+    }
+
+    //查询申请的信息
+    @Override
+    public List<Application> applyUser() {
+        //定义sql
+        String sql = "select * from application";
+        //执行sql
+        List<Application> applications = template.query(sql, new BeanPropertyRowMapper<Application>(Application.class));
+        return applications;
+    }
+
+    //拒绝申请
+    @Override
+    public void applyDisagreed(int id) {
+        //定义sql
+        String sql = "delete from application where id = ?";
+        //执行sql
+        template.update(sql, id);
     }
 }

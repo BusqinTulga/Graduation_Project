@@ -1,19 +1,16 @@
 package domain;
 
-//用户的JavaBean（实体类）
-public class User {
+public class Application {
 
     private int id;
-    private String number;
     private String name;
     private String gender;
     private String age;
     private String address;
     private String classes;
-    private String phone_number;
+    private String number;
     private String email;
-    private String password;
-    private Integer authoritiy;
+    private String phone_number;
 
     public int getId() {
         return id;
@@ -21,14 +18,6 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
     }
 
     public String getName() {
@@ -71,12 +60,12 @@ public class User {
         this.classes = classes;
     }
 
-    public String getPhone_number() {
-        return phone_number;
+    public String getNumber() {
+        return number;
     }
 
-    public void setPhone_number(String phone_number) {
-        this.phone_number = phone_number;
+    public void setNumber(String number) {
+        this.number = number;
     }
 
     public String getEmail() {
@@ -87,36 +76,26 @@ public class User {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPhone_number() {
+        return phone_number;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Integer getAuthoritiy() {
-        return authoritiy;
-    }
-
-    public void setAuthoritiy(Integer authoritiy) {
-        this.authoritiy = authoritiy;
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
     }
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Application{" +
                 "id=" + id +
-                ", number='" + number + '\'' +
                 ", name='" + name + '\'' +
                 ", gender='" + gender + '\'' +
                 ", age='" + age + '\'' +
                 ", address='" + address + '\'' +
                 ", classes='" + classes + '\'' +
-                ", phone_number='" + phone_number + '\'' +
+                ", number='" + number + '\'' +
                 ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", authoritiy=" + authoritiy +
+                ", phone_number='" + phone_number + '\'' +
                 '}';
     }
 }

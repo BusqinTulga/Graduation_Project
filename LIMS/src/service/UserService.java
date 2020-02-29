@@ -1,5 +1,6 @@
 package service;
 
+import domain.Application;
 import domain.User;
 import java.util.List;
 
@@ -16,5 +17,11 @@ public interface UserService {
     void deleteUser(String id);
 
     //保存
-    void addUser(User user);
+    void addUser(Application application);
+
+    //查询申请的信息
+    List<Application> applyUser();
+
+    //拒绝申请
+    void applyDisagreed(String id);
 }

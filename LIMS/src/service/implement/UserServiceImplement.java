@@ -2,6 +2,7 @@ package service.implement;
 
 import dao.UserDao;
 import dao.implement.UserDaoImplement;
+import domain.Application;
 import domain.User;
 import service.UserService;
 import java.util.List;
@@ -9,7 +10,6 @@ import java.util.List;
 public class UserServiceImplement implements UserService {
 
     private UserDao dao = new UserDaoImplement();
-
     //登录
     @Override
     public User login(User loginUser) {
@@ -30,8 +30,19 @@ public class UserServiceImplement implements UserService {
     }
 
     //保存
+    public void addUser(Application application) {
+        dao.addUser(application);
+    }
+
+    //查询申请的信息
     @Override
-    public void addUser(User user) {
-        dao.addUser(user);
+    public List<Application> applyUser() {
+        return dao.applyUser();
+    }
+
+    //拒绝申请
+    @Override
+    public void applyDisagreed(String id) {
+        dao.applyDisagreed(Integer.parseInt(id));
     }
 }
