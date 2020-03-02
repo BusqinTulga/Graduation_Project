@@ -3,9 +3,10 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>联系我们</title>
+    <title>研究方向</title>
 
     <link rel="stylesheet" href="css/bace.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
 
     <script language="Javascript" type="text/javascript">
         setInterval("timer.innerHTML=new Date().toLocaleString()");
@@ -15,11 +16,14 @@
     </script>
 
     <style>
-
+        #li_ {
+            color: #0069cc;
+            font-weight: bold;
+        }
     </style>
 </head>
-<body>
 
+<body>
 <div class="top">
     <p>${user.name}你好，现在是
         <span id="timer"></span>
@@ -46,5 +50,42 @@
     </ul>
 </div>
 
+<div class="big">
+    <div class="picture">
+        图片集
+    </div>
+
+    <div class="weizhi">
+        <p>
+            当前位置：<a href="index.jsp">首页</a> > <a href="yjfx.jsp">研究方向</a> > <a href="yjfx.jsp">1</a>
+        </p>
+    </div>
+
+    <div class="main">
+        <div class="list_left">
+            <p id="li_head">
+                研究方向
+            </p>
+            <ul>
+                <a href="yjfx.jsp"><li id="li_" class="li_item">1</li></a>
+                <a href=""><li class="li_item">2</li></a>
+            </ul>
+        </div>
+
+        <div class="content_right">
+            <h3>1</h3>
+            <span></span>
+            <p>
+                这里是研究方向...
+            </p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>
+        版权所有 © 内蒙古师范大学机器人创新实验室
+    </p>
+</footer>
 </body>
 </html>

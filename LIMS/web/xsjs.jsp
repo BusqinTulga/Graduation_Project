@@ -3,9 +3,10 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>联系我们</title>
+    <title>学生介绍</title>
 
     <link rel="stylesheet" href="css/bace.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
 
     <script language="Javascript" type="text/javascript">
         setInterval("timer.innerHTML=new Date().toLocaleString()");
@@ -15,11 +16,14 @@
     </script>
 
     <style>
-
+        #li_student {
+            color: #0069cc;
+            font-weight: bold;
+        }
     </style>
 </head>
-<body>
 
+<body>
 <div class="top">
     <p>${user.name}你好，现在是
         <span id="timer"></span>
@@ -46,5 +50,42 @@
     </ul>
 </div>
 
+<div class="big">
+    <div class="picture">
+        图片集
+    </div>
+
+    <div class="weizhi">
+        <p>
+            当前位置：<a href="index.jsp">首页</a> > <a href="jsjs.jsp">人员介绍</a> > <a href="xsjs.jsp">学生介绍</a>
+        </p>
+    </div>
+
+    <div class="main">
+        <div class="list_left">
+            <p id="li_head">
+                人员介绍
+            </p>
+            <ul>
+                <a href="jsjs.jsp"><li class="li_item">教师</li></a>
+                <a href="xsjs.jsp"><li id="li_student" class="li_item">学生</li></a>
+            </ul>
+        </div>
+
+        <div class="content_right">
+            <h3>学生介绍</h3>
+            <span></span>
+            <p>
+                这里是学生介绍...
+            </p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>
+        版权所有 © 内蒙古师范大学机器人创新实验室
+    </p>
+</footer>
 </body>
 </html>

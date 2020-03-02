@@ -3,9 +3,10 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>联系我们</title>
+    <title>组织机构</title>
 
     <link rel="stylesheet" href="css/bace.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
 
     <script language="Javascript" type="text/javascript">
         setInterval("timer.innerHTML=new Date().toLocaleString()");
@@ -15,11 +16,14 @@
     </script>
 
     <style>
-
+        #li_zzjg {
+            color: #0069cc;
+            font-weight: bold;
+        }
     </style>
 </head>
-<body>
 
+<body>
 <div class="top">
     <p>${user.name}你好，现在是
         <span id="timer"></span>
@@ -46,5 +50,43 @@
     </ul>
 </div>
 
+<div class="big">
+    <div class="picture">
+        图片集
+    </div>
+
+    <div class="weizhi">
+        <p>
+            当前位置：<a href="index.jsp">首页</a> > <a href="sysjj.jsp">实验室概况</a> > <a href="zzjg.jsp">组织机构</a>
+        </p>
+    </div>
+
+    <div class="main">
+        <div class="list_left">
+            <p id="li_head">
+                实验室概况
+            </p>
+            <ul>
+                <a href="sysjj.jsp"><li class="li_item">实验室简介</li></a>
+                <a href="fzlc.jsp"><li class="li_item">发展历程</li></a>
+                <a href="zzjg.jsp"><li id="li_zzjg" class="li_item">组织机构</li></a>
+            </ul>
+        </div>
+
+        <div class="content_right">
+            <h3>发展历程</h3>
+            <span></span>
+            <p>
+                这里是实验室的组织机构图片...
+            </p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>
+        版权所有 © 内蒙古师范大学机器人创新实验室
+    </p>
+</footer>
 </body>
 </html>

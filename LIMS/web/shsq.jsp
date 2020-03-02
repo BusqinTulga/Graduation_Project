@@ -14,9 +14,15 @@
             setInterval("timer.innerHTML=new Date().toLocaleString()",1000);
         }
 
-        function deleteApplication(id) {
+        function agreedApplication(a_id) {
+            if (confirm("您确定要通过吗？")) {
+                location.href = "/applyAgreedServlet?a_id=" + a_id;
+            }
+        }
+
+        function disagreedApplication(a_id) {
             if (confirm("您确定要拒绝吗？")) {
-                location.href = "/applyDisagreedServlet?id="+id;
+                location.href = "/applyDisagreedServlet?a_id=" + a_id;
             }
         }
     </script>
@@ -106,38 +112,7 @@
         #td_picture {
             width: 140px;
         }
-        #email {
-            width: 277px;
-            height: 50%;
-        }
-        #tel {
-            width: 277px;
-            height: 50%;
-        }
-        #aboutme {
-            display: block;
-            width: 100%;
-            height: 150px;
-            border: none;
-            resize: none;
-            outline: none;
-            font-size: 16px;
-            text-indent: 2em;
-            padding: 5px;
-        }
-        #reason {
-            display: block;
-            width: 100%;
-            height: 150px;
-            border: none;
-            resize: none;
-            outline: none;
-            font-size: 16px;
-            text-indent: 2em;
-            padding: 5px;
-        }
     </style>
-
 
 </head>
 <body>
@@ -178,19 +153,17 @@
                     <th>性别</th>
                     <td class="td_short">${application.gender}</td>
                     <th>出生年月</th>
-                    <td class="td_short_plus">${application.age}</td>
+                    <td class="td_short_plus">${application.birthday}</td>
                     <th rowspan="4" id="td_picture">生活照</th>
                 </tr>
                 <tr>
                     <th>籍贯</th>
-                    <td colspan="5">null省/自治区null市null区/县</td>
+                    <td colspan="5">${application.address}</td>
                 </tr>
                 <tr><th>学院</th>
-                    <td class="td_middle"></td>
-                    <th>年级</th>
-                    <td class="td_short"></td>
-                    <th>专业班级</th>
-                    <td class="td_short_plus"></td>
+                    <td class="td_middle" colspan="2">${application.collage}</td>
+                    <th>班级</th>
+                    <td class="td_short_plus" colspan="2">${application.classes}</td>
                 </tr>
                 <tr>
                     <th>学号</th>
@@ -204,14 +177,14 @@
                 </tr>
                 <tr>
                     <th>自我简述</th>
-                    <td colspan="6" class="td_long"></td>
+                    <td colspan="6" class="td_long">${application.self_description}</td>
                 </tr>
                 <tr><th>入社理由</th>
-                    <td colspan="6" class="td_long"></td>
+                    <td colspan="6" class="td_long">${application.reason}</td>
                 </tr>
             </table>
-            <a href="javascript:deleteApplication(${application.id});">删除</a>
-            <input id="ok" type="submit" value="通过" >
+            <a href="javascript:disagreedApplication(${application.a_id});">拒绝</a>
+            <a href="javascript:agreedApplication(${application.a_id});">通过</a>
         </form>
     </c:forEach>
 </div>
