@@ -25,11 +25,9 @@
 
 <body>
 <div class="top">
-    <p>欢迎访问，现在是
+    <p>${user.name}你好，现在是
         <span id="timer"></span>
-        <span class="language">
-            <a href="">中文</a> / <a href="">English</a>
-        </span>
+        <a href="/logoutServlet">注销</a>
     </p>
 </div>
 
@@ -42,10 +40,10 @@
     <ul>
         <a href="index.jsp"><li>首页</li></a>
         <a href="sysjj.jsp"><li>实验室概况</li></a>
-        <a href=""><li>研究方向</li></a>
+        <a href="yjfx.jsp"><li>研究方向</li></a>
         <a href="jsjs.jsp"><li>人员介绍</li></a>
         <a href=""><li>获奖成果</li></a>
-        <a href=""><li>相关下载</li></a>
+        <a href="xgxz.jsp"><li>相关下载</li></a>
         <a href="login.jsp"><li>登录</li></a>
         <a href="jrwm.jsp"><li>加入我们</li></a>
         <a href="lxwm.jsp"><li>联系我们</li></a>
@@ -59,7 +57,7 @@
 
     <div class="weizhi">
         <p>
-            当前位置：<a href="index.jsp">首页</a> > <a href="sysjj.html">实验室概况</a> > 实验室简介
+            当前位置：<a href="index.jsp">首页</a> > <a href="sysjj.jsp">实验室概况</a> > <a href="sysjj.jsp">实验室简介</a>
         </p>
     </div>
 
@@ -69,9 +67,9 @@
                 实验室概况
             </p>
             <ul>
-                <a href=""><li id="li_sysjj" class="li_item">实验室简介</li></a>
-                <a href=""><li class="li_item">发展历程</li></a>
-                <a href=""><li class="li_item">组织机构</li></a>
+                <a href="sysjj.jsp"><li id="li_sysjj" class="li_item">实验室简介</li></a>
+                <a href="fzlc.jsp"><li class="li_item">发展历程</li></a>
+                <a href="zzjg.jsp"><li class="li_item">组织机构</li></a>
             </ul>
         </div>
 
@@ -79,12 +77,7 @@
             <h3>实验室简介</h3>
             <span></span>
             <p>
-                内蒙古师范大学（Inner Mongolia Normal University）位于内蒙古自治区呼和浩特，是新中国成立后在边疆少数民族地区最早建
-                立的综合性师范大学，为自治区重点大学、中西部高校基础能力建设工程、卓越教师培养计划入选高校，是自治区培养基础教育、民
-                族教育师资和蒙汉兼通少数民族复合型人才的重要基地。是自治区各类体育专业人才和全国八省区蒙古族体育人才、中国北方民族音
-                乐人才 、自治区美术、艺术设计教育人才培养基地，被社会誉为“民族教育的摇篮”。学校前身是内蒙古师范学院，1952年5月5日成
-                立于当时的首府乌兰浩特。1953年8月，由张家口师专和绥远师专合并成的内蒙古师范专科学校并入。1982年，学校更名为“内蒙古
-                师范大学”，并被确定为自治区重点大学。2000年7月，内蒙古教育学院并入。
+                这里是实验室的简介...
             </p>
         </div>
     </div>

@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +12,18 @@
         setInterval("timer.innerHTML=new Date().toLocaleString()");
         window.onload = function (){
             setInterval("timer.innerHTML=new Date().toLocaleString()",1000);
+        }
+
+        function agreedApplication(a_id) {
+            if (confirm("您确定要通过吗？")) {
+                location.href = "/applyAgreedServlet?a_id=" + a_id;
+            }
+        }
+
+        function disagreedApplication(a_id) {
+            if (confirm("您确定要拒绝吗？")) {
+                location.href = "/applyDisagreedServlet?a_id=" + a_id;
+            }
         }
     </script>
 
@@ -46,9 +58,6 @@
             background: orange;
             color: white;
         }
-        .form {
-
-        }
         .form p {
             white-space: pre;
             margin-top: 20px;
@@ -61,9 +70,16 @@
             margin: 0 auto;
             width: 800px;
         }
+        .form form a {
+             display: block;
+             text-align: center;
+         }
+        .form form input {
+             display: block;
+             margin: 0 auto;
+         }
         .form form table tr,td,th {
             border: black solid 1px;
-
         }
         .form form table th {
             width: 100px;
@@ -96,50 +112,8 @@
         #td_picture {
             width: 140px;
         }
-        .form form input {
-            outline: none;
-            border: none;
-            text-align: center;
-            width: 100%;
-            height: 100%;
-        }
-        .name {
-
-        }
-        .school {
-
-        }
-        #email {
-            width: 277px;
-            height: 50%;
-        }
-        #tel {
-            width: 277px;
-            height: 50%;
-        }
-        #aboutme {
-            display: block;
-            width: 100%;
-            height: 150px;
-            border: none;
-            resize: none;
-            outline: none;
-            font-size: 16px;
-            text-indent: 2em;
-            padding: 5px;
-        }
-        #reason {
-            display: block;
-            width: 100%;
-            height: 150px;
-            border: none;
-            resize: none;
-            outline: none;
-            font-size: 16px;
-            text-indent: 2em;
-            padding: 5px;
-        }
     </style>
+
 </head>
 <body>
 <div class="top">
@@ -169,47 +143,50 @@
 </div>
 
 <div class="form">
-    <p>社  员  申  请  表</p>
-    <form action="/addUserServlet" method="post">
-        <table>
-            <tr>
-                <th>姓名</th>
-                <td class="td_middle"><input class="name" autocomplete="off" type="text" name="name"/></td>
-                <th>性别</th>
-                <td class="td_short"><input class="sex" autocomplete="off" type="text" name="gender"/></td>
-                <th>出生年月</th>
-                <td class="td_short_plus"><input class="birthday" autocomplete="off" type="text" name="birthday"/></td>
-                <th rowspan="4" id="td_picture">生活照</th>
-            </tr>
-            <tr>
-                <th>籍贯</th>
-                <td colspan="5">null省/自治区null市null区/县</td>
-            </tr>
-            <tr><th>学院</th>
-                <td class="td_middle"><input class="school" autocomplete="off" type="text" name="school"/></td>
-                <th>年级</th>
-                <td class="td_short"><input class="grade" autocomplete="off" type="text" name="grade"/></td>
-                <th>专业班级</th>
-                <td class="td_short_plus"><input class="class" autocomplete="off" type="text" name="class"/></td>
-            </tr>
-            <tr>
-                <th>学号</th>
-                <td class="td_middle"><input class="number" autocomplete="off" type="text" name="number"/></td>
-                <th>联系方式</th>
-                <td id="td_middle_plus" colspan="3">
-                    <input id="email" autocomplete="off" type="text" name="email" placeholder="邮箱"/>
-                    <br>
-                    <input id="tel" autocomplete="off" type="text" name="tel" placeholder="手机号"/>
-                </td>
-            </tr>
-            <tr>
-                <th>自我简述</th>
-                <td colspan="6" class="td_long"><textarea id="aboutme" maxlength="340"></textarea></td>
-            </tr>
-            <tr><th>入社理由</th>
-                <td colspan="6" class="td_long"><textarea id="reason" maxlength="340"></textarea></td></tr>
-        </table>
-    </form>
+    <c:forEach items="${application}" var="application" varStatus="s">
+        <p>社  员  申  请  表</p>
+        <form action="/applyUserServlet" method="post">
+            <table>
+                <tr>
+                    <th>姓名</th>
+                    <td class="td_middle">${application.name}</td>
+                    <th>性别</th>
+                    <td class="td_short">${application.gender}</td>
+                    <th>出生年月</th>
+                    <td class="td_short_plus">${application.birthday}</td>
+                    <th rowspan="4" id="td_picture">生活照</th>
+                </tr>
+                <tr>
+                    <th>籍贯</th>
+                    <td colspan="5">${application.address}</td>
+                </tr>
+                <tr><th>学院</th>
+                    <td class="td_middle" colspan="2">${application.collage}</td>
+                    <th>班级</th>
+                    <td class="td_short_plus" colspan="2">${application.classes}</td>
+                </tr>
+                <tr>
+                    <th>学号</th>
+                    <td class="td_middle">${application.number}</td>
+                    <th>联系方式</th>
+                    <td id="td_middle_plus" colspan="3">
+                        邮箱：${application.email}
+                        <br>
+                        手机号：${application.phone_number}
+                    </td>
+                </tr>
+                <tr>
+                    <th>自我简述</th>
+                    <td colspan="6" class="td_long">${application.self_description}</td>
+                </tr>
+                <tr><th>入社理由</th>
+                    <td colspan="6" class="td_long">${application.reason}</td>
+                </tr>
+            </table>
+            <a href="javascript:disagreedApplication(${application.a_id});">拒绝</a>
+            <a href="javascript:agreedApplication(${application.a_id});">通过</a>
+        </form>
+    </c:forEach>
 </div>
 <br>
 <br>
