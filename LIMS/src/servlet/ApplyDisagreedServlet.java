@@ -13,11 +13,11 @@ import java.io.IOException;
 public class ApplyDisagreedServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //获取id
-        String id = request.getParameter("id");
+        String a_id = request.getParameter("a_id");
         //调用service
         UserServiceImplement service = new UserServiceImplement();
-        service.applyDisagreed(id);
-        //跳转（重定向）到userListServlet
+        service.applyDisagreed(a_id);
+        //重定向到userListServlet
         response.sendRedirect("/applyUserServlet");
     }
 

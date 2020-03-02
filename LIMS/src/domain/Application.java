@@ -2,22 +2,25 @@ package domain;
 
 public class Application {
 
-    private int id;
+    private int a_id;
     private String name;
     private String gender;
-    private String age;
+    private String birthday;
     private String address;
+    private String collage;
     private String classes;
     private String number;
     private String email;
     private String phone_number;
+    private String self_description;
+    private String reason;
 
-    public int getId() {
-        return id;
+    public int getA_id() {
+        return a_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setA_id(int a_id) {
+        this.a_id = a_id;
     }
 
     public String getName() {
@@ -36,12 +39,12 @@ public class Application {
         this.gender = gender;
     }
 
-    public String getAge() {
-        return age;
+    public String getBirthday() {
+        return birthday;
     }
 
-    public void setAge(String age) {
-        this.age = age;
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
     }
 
     public String getAddress() {
@@ -50,6 +53,14 @@ public class Application {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getCollage() {
+        return collage;
+    }
+
+    public void setCollage(String collage) {
+        this.collage = collage;
     }
 
     public String getClasses() {
@@ -84,18 +95,19 @@ public class Application {
         this.phone_number = phone_number;
     }
 
-    @Override
-    public String toString() {
-        return "Application{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", gender='" + gender + '\'' +
-                ", age='" + age + '\'' +
-                ", address='" + address + '\'' +
-                ", classes='" + classes + '\'' +
-                ", number='" + number + '\'' +
-                ", email='" + email + '\'' +
-                ", phone_number='" + phone_number + '\'' +
-                '}';
+    public String getSelf_description() {
+        return self_description;
+    }
+
+    public void setSelf_description(String self_description) {
+        this.self_description = self_description;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
     }
 }

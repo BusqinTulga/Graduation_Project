@@ -13,11 +13,14 @@ import java.util.List;
 @WebServlet("/applyUserServlet")
 public class ApplyUserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         //调用service进行查询
         UserServiceImplement service = new UserServiceImplement();
         List<Application> applications = service.applyUser();
+
         //将list存入request
         request.setAttribute("application", applications);
+
         //转发到.jsp
         request.getRequestDispatcher("/shsq.jsp").forward(request, response);
     }

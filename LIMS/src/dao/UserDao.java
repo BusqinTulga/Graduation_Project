@@ -22,6 +22,10 @@ public interface UserDao {
     //查询申请的信息
     List<Application> applyUser();
 
-    //拒绝加入
+    //拒绝申请
     void applyDisagreed(int parseInt);
+
+    //同意申请
+    void applyAgreedInsert(int parseInt);
+    void applyAgreedDelete(int parseInt);
 }

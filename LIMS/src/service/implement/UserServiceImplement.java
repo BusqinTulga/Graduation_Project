@@ -42,7 +42,18 @@ public class UserServiceImplement implements UserService {
 
     //拒绝申请
     @Override
-    public void applyDisagreed(String id) {
-        dao.applyDisagreed(Integer.parseInt(id));
+    public void applyDisagreed(String a_id) {
+        dao.applyDisagreed(Integer.parseInt(a_id));
+    }
+
+    //同意申请
+    @Override
+    public void applyAgreedInsert(String a_id) {
+        dao.applyAgreedInsert(Integer.parseInt(a_id));
+    }
+    @Override
+    public void applyAgreedDelete(String a_id) {
+        dao.applyAgreedDelete(Integer.parseInt(a_id));
+
     }
 }

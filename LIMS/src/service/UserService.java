@@ -23,5 +23,9 @@ public interface UserService {
     List<Application> applyUser();
 
     //拒绝申请
-    void applyDisagreed(String id);
+    void applyDisagreed(String a_id);
+
+    //同意申请
+    void applyAgreedInsert(String a_id);
+    void applyAgreedDelete(String a_id);
 }

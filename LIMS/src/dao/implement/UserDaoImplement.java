@@ -51,9 +51,13 @@ public class UserDaoImplement implements UserDao {
     @Override
     public void addUser(Application application) {
         //定义sql
-        String sql = "insert into application values(null,null,?,?,null,null,null,null,null)";
+        String sql = "insert into application values(null,?,?,?,?,?,?,?,?,?,?,?)";
         //执行sql
-        template.update(sql, application.getName(), application.getGender());
+        template.update(
+                sql, application.getNumber(), application.getName(), application.getGender(), application.getBirthday(),
+                application.getAddress(),application.getCollage(), application.getClasses(), application.getPhone_number(), application.getEmail(),
+                application.getSelf_description(), application.getReason()
+        );
     }
 
     //查询申请的信息
@@ -68,10 +72,30 @@ public class UserDaoImplement implements UserDao {
 
     //拒绝申请
     @Override
-    public void applyDisagreed(int id) {
+    public void applyDisagreed(int a_id) {
         //定义sql
-        String sql = "delete from application where id = ?";
+        String sql = "delete from application where a_id = ?";
         //执行sql
-        template.update(sql, id);
+        template.update(sql, a_id);
+    }
+
+    //同意申请
+    @Override
+    public void applyAgreedInsert(int a_id) {
+        //定义添加sql
+        String sql = "insert into " +
+                "user(number, name, gender, birthday, address, collage, classes, phone_number, email, self_description, reason) " +
+                "select " +
+                "number, name, gender, birthday, address, collage, classes, phone_number, email, self_description, reason " +
+                "from application where a_id = ?";
+        //执行添加sql
+        template.update(sql, a_id);
+    }
+    @Override
+    public void applyAgreedDelete(int a_id) {
+        //定义删除sql
+        String sql = "delete from application where a_id = ?";
+        //执行删除sql
+        template.update(sql, a_id);
     }
 }

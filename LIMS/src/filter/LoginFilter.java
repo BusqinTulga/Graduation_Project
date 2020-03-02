@@ -1,6 +1,7 @@
 package filter;
 
 import domain.User;
+import javafx.scene.control.Alert;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -21,11 +22,13 @@ public class LoginFilter implements Filter {
         //获取资源请求路径
         String uri = request.getRequestURI();
         //判断是否包含 登陆后才可浏览 的相关路径
-        if (uri.contains("/admin.jsp") || uri.contains("/cyxx.jsp") || uri.contains("/shsq.jsp")) {
+        if (uri.contains("/admin.jsp") || uri.contains("/cyxx.jsp") || uri.contains("/shsq.jsp") || uri.contains("/xgxz.jsp")) {
             //包含登录这些页面需要过滤
             HttpSession session = request.getSession();
-            Object user = session.getAttribute("user");
-            if (user != null) {
+            //此方法真牛逼 强制类型转换(User)
+            User user = (User)session.getAttribute("user");
+            
+            if (user != null && user.getAuthoritiy() == 1) {
                 chain.doFilter(req,resp);
             }
             else {
