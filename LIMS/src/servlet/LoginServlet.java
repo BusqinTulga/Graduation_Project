@@ -41,22 +41,26 @@ public class LoginServlet extends HttpServlet {
         //判断user
         if (user == null) {
             //登录失败
-            req.getRequestDispatcher("/failServlet").forward(req, resp);
-        }
-
-        //到此用户必定能登录
-        //提前将用户数据存入session
-        HttpSession session = req.getSession();
-        session.setAttribute("user",user);
-
-        //验证权限
-        Integer authoritiy = user.getAuthoritiy();
-        if (authoritiy == 1) {
-            resp.sendRedirect("/admin.jsp");
+            req.setAttribute("login_message","用户名或密码错误！");
+            req.getRequestDispatcher("/login.jsp").forward(req, resp);
         }
         else {
-            //重定向回主页
-            resp.sendRedirect("index.jsp");
+            //登录次数+1
+            service.add(a);
+            //提前将用户数据存入session
+            HttpSession session = req.getSession();
+            session.setAttribute("user",user);
+
+            //验证权限
+            Integer authoritiy = user.getAuthoritiy();
+            if (authoritiy == 1) {
+                //管理员 重定向到admin
+                resp.sendRedirect("/admin.jsp");
+            }
+            else {
+                //普通用户 重定向到index
+                resp.sendRedirect("index.jsp");
+            }
         }
     }
 
