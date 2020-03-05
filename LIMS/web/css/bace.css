@@ -21,43 +21,71 @@ a {
 header {
     margin: 0 auto;
     width: 1100px;
-    height: 100px;
+    height: 120px;
 }
 header h1 {
     display: inline-block;
     text-align: center;
-    line-height: 102px;
-    margin: 0 185px;
+    line-height: 120px;
+    margin: 0 157px;
 }
 header img {
     float: left;
-    width: 250px;
-    height: 100px;
+    width: 306px;
+    height: 120px;
 }
-.daohang {
-    margin: 0 auto;
-    width: 100%;
-    height: 35px;
-    text-align: center;
+.menu {
+    height:40px;
+    margin:0 auto;
     background: #0069cc;
 }
-.daohang ul {
-    list-style: none;
-    display: inline-block;
+.menu ul {
+    list-style:none;
+    height: 40px;
+    display: table;
+    margin: 0 auto;
 }
-.daohang ul a {
-    color: white;
-    font-family: "微软雅黑";
+.menu ul li {
+    float:left;
+    margin-left:2px;
 }
-.daohang ul li {
+.menu ul li a {
+    display:block;
     width: 130px;
-    height: 35px;
-    line-height: 35px;
-    float: left;
+    height:40px;
+    line-height:40px;
+    text-align:center;
+    color: white;
+    font-size:16px;
 }
-.daohang ul li:hover {
+.menu ul li a:hover {
     background: orange;
     color: white;
+}
+.menu ul li ul {
+    display:none;
+    position:absolute;
+}
+.menu ul li ul li {
+    float:none;
+    width: 180px;
+    border-bottom: gainsboro solid 1px;
+}
+.menu ul li ul li a {
+    width: 165px;
+    height: 35px;
+    background: whitesmoke;
+    padding-left: 15px;
+    text-align: left;
+    line-height: 40px;
+    color: gray;
+}
+.menu ul li ul li a:hover {
+    background: gainsboro;
+    color: #0069cc;
+}
+.menu ul li:hover ul {
+    display:block;
 }
 .big {
     width: 1100px;
