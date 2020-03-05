@@ -8,10 +8,21 @@
     <link rel="stylesheet" href="css/bace.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
-    <script language="Javascript" type="text/javascript">
+    <script>
+        //header时钟
         setInterval("timer.innerHTML=new Date().toLocaleString()");
         window.onload = function (){
             setInterval("timer.innerHTML=new Date().toLocaleString()",1000);
+        };
+
+        //二级菜单
+        window.onload = function menu() {
+            var li = document.getElementById("menu").getElementsByTagName("li");
+            for (var i = 0; i < li.length; i ++) {
+                li[i].onmouseover = function() {
+                    this.className += (this.className.length > 0);
+                }
+            }
         }
     </script>
 
@@ -36,17 +47,48 @@
     <a href="http://www.imnu.edu.cn/"><img src="image/logo.jpg"></a>
 </header>
 
-<div class="daohang">
+<div class="menu">
     <ul>
-        <a href="index.jsp"><li>首页</li></a>
-        <a href="sysjj.jsp"><li>实验室概况</li></a>
-        <a href="yjfx.jsp"><li>研究方向</li></a>
-        <a href="jsjs.jsp"><li>人员介绍</li></a>
-        <a href=""><li>获奖成果</li></a>
-        <a href="xgxz.jsp"><li>相关下载</li></a>
-        <a href="login.jsp"><li>登录</li></a>
-        <a href="jrwm.jsp"><li>加入我们</li></a>
-        <a href="lxwm.jsp"><li>联系我们</li></a>
+        <li><a href="index.jsp">首页</a></li>
+        <li>
+            <a href="sysjj.jsp">实验室概况</a>
+            <ul>
+                <li><a href="sysjj.jsp">实验室简介</a></li>
+                <li><a href="fzlc.jsp">发展历程</a></li>
+                <li><a href="zzjg.jsp">组织机构</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="yjfx.jsp">研究方向</a>
+            <ul>
+                <li><a href="yjfx.jsp">1</a></li>
+                <li><a href="">2</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="jsjs.jsp">人员介绍</a>
+            <ul>
+                <li><a href="jsjs.jsp">教师</a></li>
+                <li><a href="xsjs.jsp">学生</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="hjcg.jsp">获奖成果</a>
+            <ul>
+                <li><a href="">1</a></li>
+                <li><a href="">2</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="xgxz.jsp">相关下载</a>
+            <ul>
+                <li><a href="">1</a></li>
+                <li><a href="">2</a></li>
+            </ul>
+        </li>
+        <li><a href="login.jsp">登录</a></li>
+        <li><a href="jrwm.jsp">加入我们</a></li>
+        <li><a href="lxwm.jsp">联系我们</a></li>
     </ul>
 </div>
 
