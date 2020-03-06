@@ -21,6 +21,7 @@ public class SuccessServlet extends HttpServlet {
             response.setContentType("text/html;charset=utf-8");
             //输出
             response.getWriter().write("登陆成功！" + user.getName() + "，欢迎您！");
+
         }
     }
     protected void  doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

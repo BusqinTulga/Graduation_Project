@@ -13,14 +13,14 @@ import java.io.IOException;
 public class DeleteUserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        //获取id
+        //获取成员id
         String id = request.getParameter("id");
 
-        //调用UserService接口完成删除
+        //调用UserService的方法 删除
         UserServiceImplement service = new UserServiceImplement();
         service.deleteUser(id);
 
-        //跳转到userListServlet
+        //重定向回userListServlet
         response.sendRedirect("/userListServlet");
     }
 

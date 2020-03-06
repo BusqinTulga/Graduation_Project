@@ -15,14 +15,14 @@ import java.util.List;
 public class UserListServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        //调用UserService接口完成查询
+        //调用UserService的方法 查询
         UserServiceImplement service = new UserServiceImplement();
         List<User> members = service.findAll();
 
-        //将List存入request域
+        //将list存入request域
         request.setAttribute("member",members);
 
-        //转发到.jsp
+        //转发回cyxx.jsp
         request.getRequestDispatcher("/cyxx.jsp").forward(request,response);
     }
 

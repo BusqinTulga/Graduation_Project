@@ -9,6 +9,8 @@ public interface UserDao {
 
     //登录
     User login(User loginUser);
+    //登录次数+1
+    void addLoginTimes(User loginUser);
 
     //查询所有成员信息
     List<User> findAll();

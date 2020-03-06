@@ -14,20 +14,17 @@ public class LogoutServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         //获取session
-        //false代表：不创建session对象，只是从request中获取
-        HttpSession session = request.getSession(false);
+        HttpSession session = request.getSession();
 
-        //如果session为空，无事发生
-        if (session == null) {
-            return;
-        }
-        //则删除user
-        else {
+        //如果session不为空，删除user
+        if (session != null) {
             session.removeAttribute("user");
         }
-
-        //转发 回主页
-        response.sendRedirect("index.jsp");
+        else {
+            //无事发生
+        }
+            //重定向回index.jsp
+            response.sendRedirect("index.jsp");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

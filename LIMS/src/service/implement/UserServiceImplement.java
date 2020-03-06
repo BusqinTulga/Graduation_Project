@@ -16,6 +16,12 @@ public class UserServiceImplement implements UserService {
         return dao.login(loginUser);
     }
 
+    //登录次数+1
+    @Override
+    public void addLoginTimes(User loginUser) {
+        dao.addLoginTimes(loginUser);
+    }
+
     //查询所有成员信息
     @Override
     public List<User> findAll() {

@@ -9,6 +9,8 @@ public interface UserService {
 
     //登录
     User login(User loginUser);
+    //登录次数+1
+    void addLoginTimes(User loginUser);
 
     //查询所有用户信息
     List<User> findAll();

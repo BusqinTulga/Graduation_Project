@@ -27,6 +27,14 @@ public class UserDaoImplement implements UserDao {
         }
         return user;
     }
+    //登录次数+1
+    @Override
+    public void addLoginTimes(User loginUser) {
+        //定义sql
+        String sql = "update user set login_times = login_times+1 where name = ? and password = ?";
+        //执行sql
+        template.update(sql, loginUser.getName(), loginUser.getPassword());
+    }
 
     //查询所有成员信息
     @Override
@@ -80,6 +88,7 @@ public class UserDaoImplement implements UserDao {
     }
 
     //同意申请
+    //从application表添加到user表
     @Override
     public void applyAgreedInsert(int a_id) {
         //定义添加sql
@@ -91,6 +100,7 @@ public class UserDaoImplement implements UserDao {
         //执行添加sql
         template.update(sql, a_id);
     }
+    //从application表删除
     @Override
     public void applyAgreedDelete(int a_id) {
         //定义删除sql
