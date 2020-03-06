@@ -137,12 +137,5 @@
         版权所有 © 内蒙古师范大学机器人创新实验室
     </p>
 </footer>
-<%--<script>--%>
-<%--    document.onkeydown = function() {--%>
-<%--        if(Event.keyCode==13){--%>
-<%--            document.getElementById("submit").click();--%>
-<%--        }--%>
-<%--    }--%>
-<%--</script>--%>
 </body>
 </html>
