@@ -7,22 +7,34 @@
     <title>审核申请</title>
 
     <link rel="stylesheet" href="css/bace.css" type="text/css">
-
-    <script language="Javascript" type="text/javascript">
+    <script>
+        //header时钟
         setInterval("timer.innerHTML=new Date().toLocaleString()");
         window.onload = function (){
             setInterval("timer.innerHTML=new Date().toLocaleString()",1000);
-        }
+        };
 
-        function agreedApplication(a_id) {
-            if (confirm("您确定要通过吗？")) {
-                location.href = "/applyAgreedServlet?a_id=" + a_id;
+        //二级菜单
+        window.onload = function menu() {
+            var li = document.getElementById("menu").getElementsByTagName("li");
+            for (var i = 0; i < li.length; i ++) {
+                li[i].onmouseover = function() {
+                    this.className += (this.className.length > 0);
+                }
             }
         }
 
+        //拒绝
         function disagreedApplication(a_id) {
             if (confirm("您确定要拒绝吗？")) {
                 location.href = "/applyDisagreedServlet?a_id=" + a_id;
+            }
+        }
+
+        //通过
+        function agreedApplication(a_id) {
+            if (confirm("您确定要通过吗？")) {
+                location.href = "/applyAgreedServlet?a_id=" + a_id;
             }
         }
     </script>
@@ -137,7 +149,7 @@
         <a href="/userListServlet"><li>成员信息管理</li></a>
         <a href=""><li>权限管理</li></a>
         <a href=""><li>5</li></a>
-        <a href="shsq.jsp"><li>审核申请</li></a>
+        <a href="/applyUserServlet"><li>审核申请</li></a>
         <a href=""><li>留言管理</li></a>
     </ul>
 </div>

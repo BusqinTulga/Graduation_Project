@@ -3,10 +3,9 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>组织机构</title>
+    <title>登录</title>
 
     <link rel="stylesheet" href="css/bace.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
 
     <script>
         //header时钟
@@ -27,14 +26,43 @@
     </script>
 
     <style>
-        #li_zzjg {
-            color: #0069cc;
+        .login {
+            border: gainsboro solid 1px;
+            width: 300px;
+            height: 400px;
+            margin: 40px auto;
+            padding: 0 40px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 10px 3px lightgray;
+        }
+        .login p {
+            font-size: 26px;
             font-weight: bold;
+            text-align: center;
+            margin: 50px 0;
+            color: #5e5e5e;
+        }
+        .kuangkuang {
+            width: 286px;
+            height: 30px;
+            margin-bottom: 20px;
+        }
+        .login form input {
+            padding-left: 10px;
+            border-radius: 5px;
+            outline: none;
+            border: gainsboro solid 1px;
+        }
+        #submit {
+            width: 100%;
+            height: 45px;
+            margin-top: 20px;
+            border-radius: 3px;
         }
     </style>
 </head>
-
 <body>
+
 <div class="top">
     <p>${user.name}你好，现在是
         <span id="timer"></span>
@@ -92,37 +120,16 @@
     </ul>
 </div>
 
-<div class="big">
-    <div class="picture">
-        图片集
-    </div>
-
-    <div class="weizhi">
-        <p>
-            当前位置：<a href="index.jsp">首页</a> > <a href="sysjj.jsp">实验室概况</a> > <a href="zzjg.jsp">组织机构</a>
-        </p>
-    </div>
-
-    <div class="main">
-        <div class="list_left">
-            <p id="li_head">
-                实验室概况
-            </p>
-            <ul>
-                <a href="sysjj.jsp"><li class="li_item">实验室简介</li></a>
-                <a href="fzlc.jsp"><li class="li_item">发展历程</li></a>
-                <a href="zzjg.jsp"><li id="li_zzjg" class="li_item">组织机构</li></a>
-            </ul>
+<div class="login">
+    <p>请登录</p>
+    <form action="${pageContext.request.contextPath}/loginServlet" method="post">
+        <input class="kuangkuang" type="text" placeholder="请输入学号" name="name">
+        <input class="kuangkuang" type="password" placeholder="请输入密码" name="password">
+        <div class="message">
+            ${login_message}
         </div>
-
-        <div class="content_right">
-            <h3>发展历程</h3>
-            <span></span>
-            <p>
-                这里是实验室的组织机构图片...
-            </p>
-        </div>
-    </div>
+        <input id="submit" type="submit" value="登录">
+    </form>
 </div>
 
 <footer>

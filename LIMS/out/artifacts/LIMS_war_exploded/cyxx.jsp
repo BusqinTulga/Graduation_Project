@@ -97,7 +97,7 @@
         <a href="/userListServlet"><li>成员信息管理</li></a>
         <a href=""><li>权限管理</li></a>
         <a href=""><li>5</li></a>
-        <a href="shsq.jsp"><li>审核申请</li></a>
+        <a href="/applyUserServlet"><li>审核申请</li></a>
         <a href=""><li>留言管理</li></a>
     </ul>
 </div>

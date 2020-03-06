@@ -2,52 +2,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>内蒙古师范大学机器人创新实验室</title>
+    <meta charset="UTF-8">
+    <title>内蒙古师范大学机器人创新实验室</title>
 
-  <link rel="stylesheet" href="css/bace.css" type="text/css">
+    <link rel="stylesheet" href="css/bace.css" type="text/css">
 
-  <script language="Javascript" type="text/javascript">
-    setInterval("timer.innerHTML=new Date().toLocaleString()");
-    window.onload = function (){
-      setInterval("timer.innerHTML=new Date().toLocaleString()",1000);
-    }
-  </script>
+    <script>
+      //header时钟
+      setInterval("timer.innerHTML=new Date().toLocaleString()");
+      window.onload = function (){
+        setInterval("timer.innerHTML=new Date().toLocaleString()",1000);
+      };
 
-  <style>
-    .gundong {
-      border: black solid 1px;
-      height: 400px;
-      margin: 15px 0;
-      text-align: center;
-      line-height: 400px;
-    }
-    .gundong img {
-      width: 100%;
-      height: 100%;
-    }
-    .sidebar {
-      background: orange;
-      border-top-left-radius: 5px;
-      border-bottom-left-radius: 5px;
-      color: white;
-      width: 20px;
-      padding: 5px 4px;
-      text-align: center;
-      position: fixed;
-      display: inline;
-      top: 50%;
-      right: 0;
-    }
-    .news {
-      border: black solid 1px;
-      height: 300px;
-      margin: 15px 0;
-      text-align: center;
-      line-height: 300px;
-    }
-  </style>
+      //二级菜单
+      window.onload = function menu() {
+        var li = document.getElementById("menu").getElementsByTagName("li");
+        for (var i = 0; i < li.length; i ++) {
+          li[i].onmouseover = function() {
+            this.className += (this.className.length > 0);
+          }
+        }
+      }
+    </script>
 
+    <style>
+      .gundong {
+        border: black solid 1px;
+        height: 400px;
+        margin: 15px 0;
+        text-align: center;
+        line-height: 400px;
+      }
+      .gundong img {
+        width: 100%;
+        height: 100%;
+      }
+      .sidebar {
+        background: orange;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        color: white;
+        width: 20px;
+        padding: 5px 4px;
+        text-align: center;
+        position: fixed;
+        display: inline;
+        top: 50%;
+        right: 0;
+      }
+      .news {
+        border: black solid 1px;
+        height: 300px;
+        margin: 15px 0;
+        text-align: center;
+        line-height: 300px;
+      }
+    </style>
 </head>
 
 <body>
@@ -63,21 +73,53 @@
 
 <header>
   <h1>内蒙古师范大学机器人创新实验室</h1>
-  <a href="http://www.imnu.edu.cn/"><img src="image/logo.jpg"></a>
+  <a href="http://www.imnu.edu.cn/"><img id="#logo" src="image/logo.jpg"></a>
 </header>
 
-<div class="daohang">
+
+<div class="menu">
   <ul>
-    <a href="index.jsp"><li>首页</li></a>
-    <a href="sysjj.jsp"><li>实验室概况</li></a>
-    <a href="yjfx.jsp"><li>研究方向</li></a>
-    <a href="jsjs.jsp"><li>人员介绍</li></a>
-    <a href=""><li>获奖成果</li></a>
-    <a href="xgxz.jsp"><li>相关下载</li></a>
-    <a href="login.jsp"><li>登录</li></a>
-    <a href="jrwm.jsp"><li>加入我们</li></a>
-    <a href="lxwm.jsp"><li>联系我们</li></a>
-    <a href="admin.jsp"><li>管理系统</li></a>
+    <li><a href="index.jsp">首页</a></li>
+    <li>
+      <a href="sysjj.jsp">实验室概况</a>
+      <ul>
+        <li><a href="sysjj.jsp">实验室简介</a></li>
+        <li><a href="fzlc.jsp">发展历程</a></li>
+        <li><a href="zzjg.jsp">组织机构</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="yjfx.jsp">研究方向</a>
+      <ul>
+        <li><a href="yjfx.jsp">1</a></li>
+        <li><a href="">2</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="jsjs.jsp">人员介绍</a>
+      <ul>
+        <li><a href="jsjs.jsp">教师</a></li>
+        <li><a href="xsjs.jsp">学生</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="hjcg.jsp">获奖成果</a>
+      <ul>
+        <li><a href="">1</a></li>
+        <li><a href="">2</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="xgxz.jsp">相关下载</a>
+      <ul>
+        <li><a href="">1</a></li>
+        <li><a href="">2</a></li>
+      </ul>
+    </li>
+    <li><a href="login.jsp">登录</a></li>
+    <li><a href="jrwm.jsp">加入我们</a></li>
+    <li><a href="lxwm.jsp">联系我们</a></li>
+    <li><a href="admin.jsp">管理系统</a></li>
   </ul>
 </div>
 
@@ -108,7 +150,7 @@
       num = 1;
     }
   }
-  setInterval(fun,1500);
+  setInterval(fun,1000);
 </script>
 </body>
 </html>
