@@ -60,6 +60,11 @@ public class UserServiceImplement implements UserService {
     @Override
     public void applyAgreedDelete(String a_id) {
         dao.applyAgreedDelete(Integer.parseInt(a_id));
+    }
 
+    //访问量+1
+    @Override
+    public void addViewTimes() {
+        dao.addViewTimes();
     }
 }

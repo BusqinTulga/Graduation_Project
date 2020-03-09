@@ -1,8 +1,6 @@
 package filter;
 
 import domain.User;
-import javafx.scene.control.Alert;
-
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +16,7 @@ public class AdminFilter implements Filter {
     }
 
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
+
         //强制类型转换
         HttpServletRequest request = (HttpServletRequest) req;
 

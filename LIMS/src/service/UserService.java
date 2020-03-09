@@ -30,4 +30,7 @@ public interface UserService {
     //同意申请
     void applyAgreedInsert(String a_id);
     void applyAgreedDelete(String a_id);
+
+    //访问量+1
+    void addViewTimes();
 }

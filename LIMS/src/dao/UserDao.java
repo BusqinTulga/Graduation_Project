@@ -30,4 +30,7 @@ public interface UserDao {
     //同意申请
     void applyAgreedInsert(int parseInt);
     void applyAgreedDelete(int parseInt);
+
+    //访问量+1
+    void addViewTimes();
 }

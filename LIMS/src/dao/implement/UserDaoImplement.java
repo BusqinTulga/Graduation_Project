@@ -108,4 +108,11 @@ public class UserDaoImplement implements UserDao {
         //执行删除sql
         template.update(sql, a_id);
     }
+
+    //访问量+1
+    @Override
+    public void addViewTimes() {
+        String sql = "update admin set view_times = view_times + 1";
+        template.update(sql);
+    }
 }
