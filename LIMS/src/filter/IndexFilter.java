@@ -5,6 +5,7 @@ import service.implement.UserServiceImplement;
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebFilter("/*")
@@ -18,13 +19,17 @@ public class IndexFilter implements Filter {
 
         //强制类型转换
         HttpServletRequest request = (HttpServletRequest) req;
+
         //获取资源请求路径
         String uri = request.getRequestURI();
+
         //访问index.jsp时 如果
         if(uri.contains("/index.jsp")) {
-            //转发到servlet
-            
-            //继续放行
+            //调用UserService的方法 +1
+            UserServiceImplement service = new UserServiceImplement();
+            service.addViewTimes();
+
+            //然后再继续放行
             chain.doFilter(req, resp);
         }
         else {

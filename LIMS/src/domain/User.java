@@ -1,5 +1,7 @@
 package domain;
 
+import java.sql.Timestamp;
+
 //用户的JavaBean（实体类）
 public class User {
 
@@ -14,6 +16,8 @@ public class User {
     private String email;
     private String password;
     private Integer authoritiy;
+    private Integer login_times;
+    private Timestamp last_time_login;
 
     public int getId() {
         return id;
@@ -103,6 +107,22 @@ public class User {
         this.authoritiy = authoritiy;
     }
 
+    public Integer getLogin_times() {
+        return login_times;
+    }
+
+    public void setLogin_times(Integer login_times) {
+        this.login_times = login_times;
+    }
+
+    public Timestamp getLast_time_login() {
+        return last_time_login;
+    }
+
+    public void setLast_time_login(Timestamp last_time_login) {
+        this.last_time_login = last_time_login;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -117,6 +137,8 @@ public class User {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", authoritiy=" + authoritiy +
+                ", login_times=" + login_times +
+                ", last_time_login=" + last_time_login +
                 '}';
     }
 }

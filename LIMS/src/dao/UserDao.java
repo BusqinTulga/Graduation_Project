@@ -33,4 +33,12 @@ public interface UserDao {
 
     //访问量+1
     void addViewTimes();
+
+    //查询访问量
+    int getViewTimes();
+
+    //添加最后登录时间
+    void addLastTimeLogin(int id);
+
+
 }

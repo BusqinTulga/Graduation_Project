@@ -51,7 +51,7 @@ public class LoginServlet extends HttpServlet {
             //登陆成功
 
             //登录次数+1
-            //调用UserService的方法 修改
+            //修改
             service.addLoginTimes(loginUser);
 
             //提前将用户数据存入session
@@ -62,7 +62,7 @@ public class LoginServlet extends HttpServlet {
             Integer authoritiy = user.getAuthoritiy();
             if (authoritiy == 1) {
                 //管理员 重定向到admin.jsp
-                resp.sendRedirect("/admin.jsp");
+                resp.sendRedirect("/getViewTimesServlet");
             }
             else {
                 //普通用户 重定向回index.jsp

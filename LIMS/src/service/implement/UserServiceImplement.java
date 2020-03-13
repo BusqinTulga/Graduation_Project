@@ -67,4 +67,16 @@ public class UserServiceImplement implements UserService {
     public void addViewTimes() {
         dao.addViewTimes();
     }
+
+    //查询访问量
+    @Override
+    public int getViewTimes() {
+        return dao.getViewTimes();
+    }
+
+    //添加最后登录时间
+    @Override
+    public void addLastTimeLogin(int id) {
+        dao.addLastTimeLogin(id);
+    }
 }

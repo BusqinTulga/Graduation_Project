@@ -85,6 +85,7 @@ public class UserDaoImplement implements UserDao {
         String sql = "delete from application where a_id = ?";
         //执行sql
         template.update(sql, a_id);
+
     }
 
     //同意申请
@@ -112,7 +113,28 @@ public class UserDaoImplement implements UserDao {
     //访问量+1
     @Override
     public void addViewTimes() {
+        //定义sql
         String sql = "update admin set view_times = view_times + 1";
+        //执行sql
         template.update(sql);
+    }
+
+    //查询访问量
+    @Override
+    public int getViewTimes() {
+        //定义sql
+        String sql = "select view_times from admin";
+        //执行sql
+        Integer view_times = template.queryForObject(sql, Integer.class);
+        return view_times;
+    }
+
+    //添加最后登录时间
+    @Override
+    public void addLastTimeLogin(int id) {
+        //定义sql
+        String sql = "update user set last_time_login = now() where id = ?";
+        //执行sql
+        template.update(sql, id);
     }
 }
