@@ -2,7 +2,7 @@
     margin:0;
     padding:0;
 }
-a {
+a,a:link,a:visited,a:hover,a:active {
     text-decoration: none;
 }
 .top {
@@ -14,6 +14,7 @@ a {
     height: 30px;
     line-height: 30px;
     margin: 0 auto;
+    font-size: 16px !important;
 }
 .language {
     float: right;
@@ -27,7 +28,7 @@ header h1 {
     display: inline-block;
     text-align: center;
     line-height: 120px;
-    margin: 0 157px;
+    margin: 0 127px;
 }
 header img {
     float: left;
@@ -41,13 +42,11 @@ header img {
 }
 .menu ul {
     list-style:none;
-    height: 40px;
     display: table;
     margin: 0 auto;
 }
 .menu ul li {
     float:left;
-    margin-left:2px;
 }
 .menu ul li a {
     display:block;
@@ -57,6 +56,7 @@ header img {
     text-align:center;
     color: white;
     font-size:16px;
+    text-decoration: none;
 }
 .menu ul li a:hover {
     background: orange;
@@ -65,24 +65,28 @@ header img {
 .menu ul li ul {
     display:none;
     position:absolute;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 5px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.175);
 }
 .menu ul li ul li {
     float:none;
     width: 180px;
-    border-bottom: gainsboro solid 1px;
 }
 .menu ul li ul li a {
     width: 165px;
     height: 35px;
-    background: whitesmoke;
+    background: white;
     padding-left: 15px;
     text-align: left;
     line-height: 40px;
-    color: gray;
+    color: #555555;
+    border-radius: 5px;
 }
 .menu ul li ul li a:hover {
-    background: gainsboro;
+    background: #f5f5f5;
     color: #0069cc;
+
 }
 .menu ul li:hover ul {
     display:block;

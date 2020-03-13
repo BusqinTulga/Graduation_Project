@@ -11,6 +11,7 @@
 }
 .weizhi p {
     margin-bottom: 10px;
+    font-size: 16px;
 }
 .weizhi a {
     color: gray;
@@ -22,7 +23,7 @@
     overflow: hidden;
 }
 .list_left {
-    background: #f5f6f7;
+    background: #f5f5f5;
     height: 400px;
     width: 200px;
     float: left;
@@ -63,8 +64,8 @@
 .content_right h3 {
     font-size: 22px;
     text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     padding-bottom: 20px;
     border-bottom: #eeeeee solid 1px;
 }
