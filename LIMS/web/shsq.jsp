@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,37 +8,6 @@
     <title>审核申请</title>
 
     <link rel="stylesheet" href="css/bace.css" type="text/css">
-    <script>
-        //header时钟
-        setInterval("timer.innerHTML=new Date().toLocaleString()");
-        window.onload = function (){
-            setInterval("timer.innerHTML=new Date().toLocaleString()",1000);
-        };
-
-        //二级菜单
-        window.onload = function menu() {
-            var li = document.getElementById("menu").getElementsByTagName("li");
-            for (var i = 0; i < li.length; i ++) {
-                li[i].onmouseover = function() {
-                    this.className += (this.className.length > 0);
-                }
-            }
-        }
-
-        //拒绝
-        function disagreedApplication(a_id) {
-            if (confirm("您确定要拒绝吗？")) {
-                location.href = "/applyDisagreedServlet?a_id=" + a_id;
-            }
-        }
-
-        //通过
-        function agreedApplication(a_id) {
-            if (confirm("您确定要通过吗？")) {
-                location.href = "/applyAgreedServlet?a_id=" + a_id;
-            }
-        }
-    </script>
 
     <style>
         #line{
@@ -58,7 +28,6 @@
         }
         .manage_daohang ul a {
             color: white;
-            font-family: "微软雅黑";
         }
         .manage_daohang ul li {
             width: 150px;
@@ -125,19 +94,35 @@
             width: 140px;
         }
     </style>
-
 </head>
+
 <body>
 <div class="top">
-    <p>${user.name}你好，现在是
-        <span id="timer"></span>
-        <a href="/logoutServlet">注销</a>
+    <p>
+        <c:choose>
+            <c:when test="${user == null}">
+                <!-- 未登录 -->
+                欢迎访问！
+            </c:when>
+            <c:when test="${user.getAuthoritiy() == 1}">
+                <!-- 已登录 管理员 -->
+                尊贵的${user.name}您好！您的上次登录时间是：<fmt:formatDate value="${user.last_time_login}" pattern="yyyy-MM-dd HH:mm:ss"/>
+                &nbsp;&nbsp;
+                <a href="${pageContext.request.contextPath}/logoutServlet">注销</a>
+            </c:when>
+            <c:otherwise>
+                <!-- 已登录 普通用户 -->
+                ${user.name}你好！你的上次登录时间是：<fmt:formatDate value="${user.last_time_login}" pattern="yyyy-MM-dd HH:mm:ss"/>
+                &nbsp;
+                <a href="${pageContext.request.contextPath}/logoutServlet">注销</a>
+            </c:otherwise>
+        </c:choose>
     </p>
 </div>
 
 <header>
     <h1>机器人创新实验室后台管理系统</h1>
-    <img src="image/logo.jpg">
+    <img src="image/logo.jpg" alt="内蒙古师范大学logo">
 </header>
 
 <p id="line"></p>
@@ -146,10 +131,10 @@
     <ul>
         <a href="admin.jsp"><li>首页</li></a>
         <a href=""><li>实验室信息管理</li></a>
-        <a href="/userListServlet"><li>成员信息管理</li></a>
+        <a href="${pageContext.request.contextPath}/userListServlet"><li>成员信息管理</li></a>
         <a href=""><li>权限管理</li></a>
-        <a href=""><li>5</li></a>
-        <a href="/applyUserServlet"><li>审核申请</li></a>
+        <a href=""><li>值日表管理</li></a>
+        <a href="${pageContext.request.contextPath}/applyUserServlet"><li>审核申请</li></a>
         <a href=""><li>留言管理</li></a>
     </ul>
 </div>
@@ -157,7 +142,7 @@
 <div class="form">
     <c:forEach items="${application}" var="application" varStatus="s">
         <p>社  员  申  请  表</p>
-        <form action="/applyUserServlet" method="post">
+        <form action="${pageContext.request.contextPath}/applyUserServlet" method="post">
             <table>
                 <tr>
                     <th>姓名</th>
@@ -203,5 +188,21 @@
 <br>
 <br>
 <br>
+
+<script>
+    //拒绝
+    function disagreedApplication(a_id) {
+        if (confirm("您确定要拒绝吗？")) {
+            location.href = "/applyDisagreedServlet?a_id=" + a_id;
+        }
+    }
+
+    //通过
+    function agreedApplication(a_id) {
+        if (confirm("您确定要通过吗？")) {
+            location.href = "/applyAgreedServlet?a_id=" + a_id;
+        }
+    }
+</script>
 </body>
 </html>

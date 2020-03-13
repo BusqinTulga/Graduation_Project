@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,13 +8,6 @@
     <title>机器人创新实验室管理系统</title>
 
     <link rel="stylesheet" href="css/bace.css" type="text/css">
-
-    <script language="Javascript" type="text/javascript">
-        setInterval("timer.innerHTML=new Date().toLocaleString()");
-        window.onload = function (){
-            setInterval("timer.innerHTML=new Date().toLocaleString()",1000);
-        }
-    </script>
 
     <style>
         #line{
@@ -34,7 +28,6 @@
         }
         .manage_daohang ul a {
             color: white;
-            font-family: "微软雅黑";
         }
         .manage_daohang ul li {
             width: 150px;
@@ -61,31 +54,35 @@
             padding: 5px 0;
         }
     </style>
-
-    <script>
-        function warning() {
-            var body = document.getElementById("body");
-            body.style.background = "red";
-        }
-
-        function deleteUser(id) {
-            if (confirm("您确定要删除成员吗？")) {
-                    location.href = "/deleteUserServlet?id="+id;
-            }
-        }
-    </script>
 </head>
-<body id="body">
+
+<body>
 <div class="top">
-    <p>${user.name}你好，现在是
-        <span id="timer"></span>
-        <a href="/logoutServlet">注销</a>
+    <p>
+        <c:choose>
+            <c:when test="${user == null}">
+                <!-- 未登录 -->
+                欢迎访问！
+            </c:when>
+            <c:when test="${user.getAuthoritiy() == 1}">
+                <!-- 已登录 管理员 -->
+                尊贵的${user.name}您好！您的上次登录时间是：<fmt:formatDate value="${user.last_time_login}" pattern="yyyy-MM-dd HH:mm:ss"/>
+                &nbsp;&nbsp;
+                <a href="${pageContext.request.contextPath}/logoutServlet">注销</a>
+            </c:when>
+            <c:otherwise>
+                <!-- 已登录 普通用户 -->
+                ${user.name}你好！你的上次登录时间是：<fmt:formatDate value="${user.last_time_login}" pattern="yyyy-MM-dd HH:mm:ss"/>
+                &nbsp;
+                <a href="${pageContext.request.contextPath}/logoutServlet">注销</a>
+            </c:otherwise>
+        </c:choose>
     </p>
 </div>
 
 <header>
     <h1>机器人创新实验室后台管理系统</h1>
-    <img src="image/logo.jpg">
+    <img src="image/logo.jpg" alt="内蒙古师范大学logo">
 </header>
 
 <p id="line"></p>
@@ -94,11 +91,12 @@
     <ul>
         <a href="admin.jsp"><li>首页</li></a>
         <a href=""><li>实验室信息管理</li></a>
-        <a href="/userListServlet"><li>成员信息管理</li></a>
+        <a href="${pageContext.request.contextPath}/userListServlet"><li>成员信息管理</li></a>
         <a href=""><li>权限管理</li></a>
-        <a href=""><li>5</li></a>
-        <a href="/applyUserServlet"><li>审核申请</li></a>
+        <a href=""><li>值日表管理</li></a>
+        <a href="${pageContext.request.contextPath}/applyUserServlet"><li>审核申请</li></a>
         <a href=""><li>留言管理</li></a>
+        <a href="${pageContext.request.contextPath}/index.jsp"><li>返回主页</li></a>
     </ul>
 </div>
 
@@ -117,6 +115,7 @@
             <th>权限</th>
             <th>操作</th>
         </tr>
+
         <c:forEach items="${member}" var="user" varStatus="s">
             <tr>
                 <td>${s.count}</td>
@@ -134,5 +133,14 @@
         </c:forEach>
     </table>
 </div>
+
+<script>
+    //确定删除提示框
+    function deleteUser(id) {
+        if (confirm("您确定要删除成员吗？")) {
+            location.href = "/deleteUserServlet?id="+id;
+        }
+    }
+</script>
 </body>
 </html>
