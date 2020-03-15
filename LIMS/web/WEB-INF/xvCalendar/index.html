@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="basic/base.css"/>
+    <link rel="stylesheet" href="dist/css/calendar.min.css"/>
+        <style>
+        .demo-box {
+            width:300px;
+            padding:15px;
+        }
+
+        .info {
+            font-size:16px;
+            font-family:'Microsoft Yahei';
+            line-height:30px;
+            padding:15px;
+            border:1px solid #ddd;
+            background: #efefef;
+        }
+
+        .tit {
+            font-size:30px;
+            text-align: center;
+            padding:15px 0px;
+        }
+    </style>
+</head>
+<body>
+
+<h2 class="tit">calendar.js一款轻量级的原生js日历插件</h2>
+<div class="info">
+    <h3>使用说明：</h3>
+    <hr/>
+    <p style="font-weight:bold">需要引入插件calendar.js/calendar.min.js</p>
+    <p style="font-weight:bold">须要引入calendar.css 样式表，可以自定义自己想要的皮肤</p>
+    <p style="font-weight:bold;color:red;">本日历插件支持cmd模块化</p>
+    <p style="font-weight:bold">如下调用：</p>
+    <p style="font-size:14px;">
+        xvDate({<br/>
+        'targetId':'date1',//时间写入对象的id<br/>
+        'triggerId':['date1','dateBtn1'],//触发事件的对象id<br/>
+        'alignId':'datesWrap1',//日历对齐对象<br/>
+        'format':'-',//时间格式 默认'YYYY-MM-DD HH:MM:SS'<br/>
+        'min':'2014-09-20 10:00:00',//最大时间<br/>
+        'max':'2014-10-30 10:00:00'//最小时间<br/>
+        });
+    </p>
+    <h3>参数说明：</h3>
+    <hr>
+    targetId ：日期写入对象的id，不能为空<br/>
+
+    triggerId ：触发事件的对象id，如果不设置则默认为targetId<br/>
+
+    alignId ： 日历盒子的对齐基准，如果不设置则默认为targetId<br/>
+
+    hms ： 时分秒是否开启，默认值为'on'则表示开启时分秒(2014-09-20 10:00:00),'off'则表示关闭时分秒模式(2014-09-20)<br/>
+
+    format ：为日期格式 默认值为'-' (2014-09-20),'/'则表示(2014/09/20)<br/>
+
+    min ：最小时间限制，min 的时间格式和前面的时间格式保持一直<br/>
+
+    max ：最大时间限制，max 的时间格式和前面的时间格式保持一直<br/>
+
+    zIndex ：最大时间限制，日历盒子的层级，默认9999<br/>
+
+    <strong style="color:red;">如果需要使用模块化在需要依赖的模块用引入即可</strong><br/>
+
+    如：define('mod1',[],function(require, exports, module){<br/>
+
+        var xvDate = require("xvDate");<br/>
+
+    })
+
+</div>
+<div class="demo-box">
+
+    <div class="demo-view">
+        <form class="form-horizontal" method="post" action="#">
+            <div class="form-item">
+                <div class="form-lab">Example 1:</div>
+                <div class="form-field">
+                    <div>
+                        <div class="select-win" id="datesWrap1">
+                            <div class="select-btn" >
+                                <span class="select-btn-icon new-icon-calendar" id="dateBtn1"></span>
+                            </div>
+                            <input type="text" placeholder="YYYY-MM-DD hh:mm:ss" id="date1" class="select-text"/>
+                        </div>
+                        <span style="color: red;">*触发日历对象是输入框和按钮</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-item">
+                <div class="form-lab">Example 2:</div>
+                <div class="form-field">
+                    <div>
+                        <div class="select-win" id="datesWrap2">
+                            <div class="select-btn">
+                                <span class="select-btn-icon new-icon-calendar" id="dateBtn2"></span>
+                            </div>
+                            <input type="text" placeholder="YYYY-MM-DD hh:mm:ss" id="date2" class="select-text"/>
+                        </div>
+                    </div>
+                    <span style="color: red;">*触发日历对象是按钮</span>
+                </div>
+            </div>
+
+            <div class="form-item">
+                <div class="form-lab">Example 3:</div>
+                <div class="form-field">
+                    <div id="date-btn1">
+                        <div class="select-win" id="datesWrap3">
+                            <div class="select-btn">
+                                <span class="select-btn-icon new-icon-calendar" id="dateBtn3"></span>
+                            </div>
+                            <input type="text" placeholder="YYYY/MM/DD" id="date3" class="select-text"/>
+                        </div>
+                        <span style="color: red;">*触发日历对象是输入框</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-item">
+                <div class="form-lab">Example 4:</div>
+                <div class="form-field">
+                    <div class="select-win">
+                        <input type="text" placeholder="YYYY-MM-DD hh:mm:ss" id="date4" class="select-text"/>
+                    </div>
+                    <span style="color: red;">*触发日历对象是输入框</span>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<!--<script src="seajs-2.3.0/sea.js"></script>-->
+<script src="dist/js/calendar.min.js"></script>
+<!--<script src="src/js/calendar.js"></script>-->
+<script type="text/javascript">
+var opts1 = {//example 1 opts
+                'targetId':'date1',//时间写入对象的id
+                'triggerId':['date1','dateBtn1'],//触发事件的对象id
+                'alignId':'datesWrap1',//日历对齐对象
+                'format':'-',//时间格式 默认'YYYY-MM-DD HH:MM:SS'
+                'min':'2014-09-20 10:00:00',//最大时间
+                'max':'2014-10-30 10:00:00'//最小时间
+            },
+            opts2 = {//example 2 opts
+                'targetId':'date2',
+                'triggerId':['dateBtn2'],
+                'alignId':'datesWrap2',
+                'format':'-',//时间格式 默认'YYYY-MM-DD HH:MM:SS'
+                'min':'2014-09-20 10:00:00',//最大时间
+                'max':'2014-10-30 10:00:00'//最小时间
+            },
+            opts3 = {//example 3 opts
+                'targetId':'date3',
+                'triggerId':'date3',
+                'alignId':'datesWrap3',
+                'hms':'off',
+                'format':'/',
+                'max':'2014-11-30',
+				
+display : 'modal', //显示方式 ，可选modal\inline\bubble\top\bottom
+mode : 'scroller',
+            },opts4={
+                'targetId':'date4',//时间写入对象的id
+                'min':'2014-09-20 10:00:00',//最大时间
+                'max':'2014-10-30 10:00:00'//最小时间
+            };
+
+    //example 1:
+    xvDate(opts1);
+    xvDate(opts2);
+    xvDate(opts3);
+    xvDate(opts4);
+
+    /*seajs.config({
+        alias: {//别名配置
+            'main': '/xvCalendar/src/js/main.js'
+        }
+    });
+    seajs.use(['main']);
+*/
+</script>
+</body>
+</html>
