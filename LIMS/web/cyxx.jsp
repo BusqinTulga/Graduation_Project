@@ -10,9 +10,6 @@
     <link rel="stylesheet" href="css/bace.css" type="text/css">
 
     <style>
-        #line{
-            border-bottom: gainsboro solid 1px;
-        }
         .manage_daohang {
             margin: 0 auto;
             width: 150px;
@@ -39,19 +36,46 @@
             background: orange;
             color: white;
         }
+        .cyxx_table {
+            margin-bottom: 100px;
+            margin-left: 170px;
+        }
         .cyxx_table table {
             border-collapse: collapse;
-            padding: 5px;
+        }
+        .cyxx_table table th, tr, td {
+            height: 20px;
+            white-space: nowrap;
         }
         .cyxx_table table th {
-            border: black solid 1px;
             width: 80px;
             padding: 5px 0;
+            background: lightblue;
+            border: lightblue solid 1px;
+        }
+        .cyxx_table table tr:hover {
+            background: #f7f7f7;
         }
         .cyxx_table table td {
-            border: black solid 1px;
+            border: gainsboro solid 1px;
+            width: 40px;
             text-align: center;
-            padding: 5px 0;
+            padding: 5px 10px;
+        }
+        .cyxx_table table a {
+            display: inline-block;
+            width: 50px;
+            height: 30px;
+            line-height: 30px;
+            background: white;
+            border: gainsboro solid 1px;
+            border-radius: 4px;
+            outline: none;
+        }
+        .cyxx_table table a:hover {
+            color: #333;
+            background-color: #e6e6e6;
+            border-color: #adadad;
         }
     </style>
 </head>
@@ -84,8 +108,6 @@
     <h1>机器人创新实验室后台管理系统</h1>
     <img src="image/logo.jpg" alt="内蒙古师范大学logo">
 </header>
-
-<p id="line"></p>
 
 <div class="manage_daohang">
     <ul>
@@ -123,7 +145,7 @@
                 <td>${user.name}</td>
                 <td>${user.gender}</td>
                 <td>${user.age}</td>
-                <td>${user.address}</td>
+                <td>${user.province}${user.city}${user.district}</td>
                 <td>${user.classes}</td>
                 <td>${user.phone_number}</td>
                 <td>${user.email}</td>

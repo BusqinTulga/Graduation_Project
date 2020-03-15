@@ -1,110 +1,116 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head lang="en">
     <meta charset="UTF-8">
-    <title>内蒙古师范大学机器人创新实验室</title>
+    <title>1</title>
+    <link rel="stylesheet" href="basic/base.css"/>
+    <link rel="stylesheet" href="css/calendar.min.css"/>
+        <style>
+        .demo-box {
+            width:300px;
+            padding:15px;
+        }
 
-    <link rel="stylesheet" href="css/bace.css" type="text/css">
-    <link rel="stylesheet" href="css/index.css" type="text/css">
+        .info {
+            font-size:16px;
+            font-family:'Microsoft Yahei';
+            line-height:30px;
+            padding:15px;
+            border:1px solid #ddd;
+            background: #efefef;
+        }
 
-    <script language="Javascript" type="text/javascript">
-        setInterval("timer.innerHTML=new Date().toLocaleString()");
-        window.onload = function (){
-            setInterval("timer.innerHTML=new Date().toLocaleString()",1000);
-        }
-    </script>
-
-    <style>
-        .gundong {
-            border: black solid 1px;
-            height: 400px;
-            margin: 15px 0;
+        .tit {
+            font-size:30px;
             text-align: center;
-            line-height: 400px;
-        }
-        .gundong img {
-            width: 100%;
-            height: 100%;
-        }
-        .sidebar {
-            background: orange;
-            border-top-left-radius: 5px;
-            border-bottom-left-radius: 5px;
-            color: white;
-            width: 20px;
-            padding: 5px 4px;
-            text-align: center;
-            position: fixed;
-            display: inline;
-            top: 50%;
-            right: 0;
-        }
-        .news {
-            border: black solid 1px;
-            height: 300px;
-            margin: 15px 0;
-            text-align: center;
-            line-height: 300px;
+            padding:15px 0px;
         }
     </style>
 </head>
-
 <body>
-<div class="top">
-    <p>欢迎访问，现在是
-        <span id="timer"></span>
-        <span class="language">
-            <a href="">中文</a> / <a href="">English</a>
-        </span>
+
+<h2 class="tit">calendar.js一款轻量级的原生js日历插件</h2>
+<div class="info">
+    <h3>使用说明：</h3>
+    <hr/>
+    <p style="font-weight:bold">需要引入插件calendar.js/calendar.min.js</p>
+    <p style="font-weight:bold">须要引入calendar.css 样式表，可以自定义自己想要的皮肤</p>
+    <p style="font-weight:bold;color:red;">本日历插件支持cmd模块化</p>
+    <p style="font-weight:bold">如下调用：</p>
+    <p style="font-size:14px;">
+        xvDate({<br/>
+        'targetId':'date1',//时间写入对象的id<br/>
+        'triggerId':['date1','dateBtn1'],//触发事件的对象id<br/>
+        'alignId':'datesWrap1',//日历对齐对象<br/>
+        'format':'-',//时间格式 默认'YYYY-MM-DD HH:MM:SS'<br/>
+        'min':'2014-09-20 10:00:00',//最大时间<br/>
+        'max':'2014-10-30 10:00:00'//最小时间<br/>
+        });
     </p>
+    <h3>参数说明：</h3>
+    <hr>
+    targetId ：日期写入对象的id，不能为空<br/>
+
+    triggerId ：触发事件的对象id，如果不设置则默认为targetId<br/>
+
+    alignId ： 日历盒子的对齐基准，如果不设置则默认为targetId<br/>
+
+    hms ： 时分秒是否开启，默认值为'on'则表示开启时分秒(2014-09-20 10:00:00),'off'则表示关闭时分秒模式(2014-09-20)<br/>
+
+    format ：为日期格式 默认值为'-' (2014-09-20),'/'则表示(2014/09/20)<br/>
+
+    min ：最小时间限制，min 的时间格式和前面的时间格式保持一直<br/>
+
+    max ：最大时间限制，max 的时间格式和前面的时间格式保持一直<br/>
+
+    zIndex ：最大时间限制，日历盒子的层级，默认9999<br/>
+
+    <strong style="color:red;">如果需要使用模块化在需要依赖的模块用引入即可</strong><br/>
+
+    如：define('mod1',[],function(require, exports, module){<br/>
+
+        var xvDate = require("xvDate");<br/>
+
+    })
+
 </div>
 
-<header>
-    <h1>内蒙古师范大学机器人创新实验室</h1>
-    <a href="http://www.imnu.edu.cn/"><img src="image/logo.jpg"></a>
-</header>
+<input type="text" placeholder="YYYY-MM-DD hh:mm:ss" id="date4" class="select-text"/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<!--<script src="seajs-2.3.0/sea.js"></script>-->
+<script src="js/calendar.min.js"></script>
+<!--<script src="src/js/calendar.js"></script>-->
+<script type="text/javascript">
+var opts4={
+                'targetId':'date4',//时间写入对象的id
+                'min':'2014-09-20 10:00:00',//最大时间
+                'max':'2014-10-30 10:00:00'//最小时间
+            };
 
-<div class="daohang">
-    <ul>
-        <a href="index.html"><li>首页</li></a>
-        <a href="sysjj.html"><li>实验室概况</li></a>
-        <a href=""><li>研究方向</li></a>
-        <a href="jsjs.html"><li>人员介绍</li></a>
-        <a href=""><li>获奖成果</li></a>
-        <a href=""><li>相关下载</li></a>
-        <a href="login.html"><li>登录</li></a>
-        <a href="jrwm.html"><li>加入我们</li></a>
-        <a href="lxwm.html"><li>联系我们</li></a>
-    </ul>
-</div>
+    //example 1:
 
-<div class="big">
-    <div class="gundong">
-        <img id="gundong" src="image/test1.PNG">
-    </div>
+    xvDate(opts4);
 
-    <div class="news">
-        新闻公告区
-    </div>
-</div>
-D
-<footer>
-    <p>
-        版权所有 © 内蒙古师范大学机器人创新实验室
-    </p>
-</footer>
-
-<script>
-    var num = 1;
-    function fun() {
-        var gundong = document.getElementById("gundong");
-        gundong.src = "image/test"+num+".PNG";
-        num++;
-        if (num == 4) {
-            num = 1;
+    /*seajs.config({
+        alias: {//别名配置
+            'main': '/xvCalendar/src/js/main.js'
         }
-    }
-    setInterval(fun,1500);
+    });
+    seajs.use(['main']);
+*/
 </script>
 </body>
 </html>

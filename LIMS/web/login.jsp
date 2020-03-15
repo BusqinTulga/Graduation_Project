@@ -15,9 +15,9 @@
         .login {
             border: gainsboro solid 1px;
             width: 300px;
-            height: 400px;
-            margin: 40px auto;
-            padding: 0 40px;
+            height: 410px;
+            margin: 50px auto;
+            padding: 0 50px;
             border-radius: 10px;
             box-shadow: 0 5px 10px 3px lightgray;
         }
@@ -46,23 +46,27 @@
             border-radius: 3px;
         }
         .message {
+            visibility:hidden;
+            width: 278px;
+            height: 22px;
             background: #f2dede;
-            border: #ebccd1 solid 1px;
             color: #a94442;
-            width: 298px;
-            display: none;
+            border: #ebccd1 solid 1px;
+            border-radius: 4px;
+            padding: 10px;
+            font-size: 14px;
         }
     </style>
 
     <script>
-    window.onload = function() {
-        if((<% session.getAttribute("login_message"); %>) == null) {
-            $(".message").hide();
-        }
-        else {
-            $(".message").show();
-        }
-    }
+        window.onload = function() {
+            if("${requestScope.login_message}" === "") {
+                $(".message").css("visibility","hidden");
+            }
+            else {
+                $(".message").css("visibility","unset");
+            }
+        };
     </script>
 </head>
 
@@ -89,6 +93,9 @@
                 <a href="${pageContext.request.contextPath}/logoutServlet">注销</a>
             </c:otherwise>
         </c:choose>
+        <span class="language">
+              <a href="">中文</a> / <a href="">English</a>
+        </span>
     </p>
 </div>
 
@@ -147,8 +154,8 @@
     <form action="${pageContext.request.contextPath}/loginServlet" method="post">
         <input class="kuangkuang" type="text" placeholder="请输入学号" name="name">
         <input class="kuangkuang" type="password" placeholder="请输入密码" name="password">
-        <div class="message">
-            ${login_message}
+        <div class="message" onclick="$('.message').css('visibility','hidden')">
+            ${requestScope.login_message}
         </div>
         <input id="submit" type="submit" value="登录">
     </form>
@@ -159,7 +166,5 @@
         版权所有 © 内蒙古师范大学机器人创新实验室
     </p>
 </footer>
-
-
 </body>
 </html>

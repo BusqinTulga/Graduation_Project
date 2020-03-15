@@ -41,6 +41,9 @@
                 <a href="${pageContext.request.contextPath}/logoutServlet">注销</a>
             </c:otherwise>
         </c:choose>
+        <span class="language">
+              <a href="">中文</a> / <a href="">English</a>
+        </span>
     </p>
 </div>
 

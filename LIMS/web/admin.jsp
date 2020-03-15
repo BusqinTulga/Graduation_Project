@@ -10,9 +10,6 @@
     <link rel="stylesheet" href="css/bace.css" type="text/css">
 
     <style>
-        #line{
-            border-bottom: gainsboro solid 1px;
-        }
         .manage_daohang {
             margin: 0 auto;
             width: 150px;
@@ -70,8 +67,6 @@
     <h1>机器人创新实验室后台管理系统</h1>
     <img src="image/logo.jpg" alt="内蒙古师范大学logo">
 </header>
-
-<p id="line"></p>
 
 <div class="manage_daohang">
     <ul>

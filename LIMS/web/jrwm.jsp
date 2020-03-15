@@ -8,8 +8,16 @@
     <title>申请加入</title>
 
     <link rel="stylesheet" href="css/bace.css" type="text/css">
+    <link rel="stylesheet" href="css/calendar.min.css"/>
+
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/distpicker.min.js"></script>
+    <script type="text/javascript" src="js/calendar.min.js"></script>
 
     <style>
+        h1 {
+            font-size: 32px;
+        }
         .form p {
             white-space: pre;
             margin-top: 40px;
@@ -22,22 +30,40 @@
             margin: 0 auto;
             width: 800px;
         }
-        .form form table tr,td,th {
+        .th {
+            font-size: 16px;
+            border: black solid 1px;
+        }
+        .tr {
             border: black solid 1px;
         }
         .form form table th {
             width: 100px;
             height: 50px;
         }
-        select {
+        .gender {
             height: 100%;
-            width: 100%;
+            width: 100px;
             appearance: none;
             -moz-appearance: none;
             -webkit-appearance: none;
             border: none;
             outline: none;
-            text-align-last: center;
+            text-align-last:center;
+        }
+        .address {
+            text-align: center;
+        }
+
+        .address select {
+            border: none;
+            outline: none;
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            width: 20%;
+            height: 50px;
+            text-align-last:center;
         }
         .td_short {
             width: 60px;
@@ -208,53 +234,82 @@
     <p>机 器 人 创 新 实 验 室<br>社  员  申  请  表</p>
     <form action="${pageContext.request.contextPath}/addUserServlet" method="post">
         <table>
-            <tr>
-                <th>姓名</th>
-                <td class="td_middle">
+            <tr class="tr">
+                <th class="th">姓名</th>
+                <td class="td_middle td">
                     <input class="name" autocomplete="off" type="text" name="name"/>
                 </td>
-                <th>性别</th>
+
+                <th class="th">性别</th>
                 <td class="td_short">
-                    <select name="gender">
+                    <select class="gender" name="gender">
                         <option id="option_null" selected disabled></option>
                         <option value="男">男</option>
                         <option value="女">女</option>
                         <option value="其它">其它</option>
                     </select>
                 </td>
-                <th>出生年月</th>
+
+                <th class="th">出生日期</th>
                 <td class="td_short_plus">
-                    <input class="birthday" autocomplete="off" type="text" name="birthday"/>
+                    <input id="date4" class="select-text" type="text" autocomplete="off" name="birthday"/>
                 </td>
-                <th rowspan="4" id="td_picture">生活照</th>
+
+                <th rowspan="4" id="td_picture" class="th">生活照</th>
             </tr>
-            <tr>
-                <th>籍贯</th>
-                <td colspan="5" class="td_short_long"><input autocomplete="off" type="text" name="address"/></td>
+
+            <tr class="tr">
+                <th class="th">籍贯</th>
+                <td colspan="5" class="td_short_long">
+                    <div class="address" data-toggle="distpicker">
+                        <select name="province"></select>
+                        <select name="city"></select>
+                        <select name="district"></select>
+                    </div>
+                </td>
             </tr>
-            <tr>
-                <th>学院</th>
-                <td class="td_middle" colspan="2"><input autocomplete="off" type="text" name="collage"/></td>
-                <th>班级</th>
-                <td class="td_short_plus" colspan="2"><input id="class" autocomplete="off" type="text" name="classes" placeholder="如：16蒙班"/></td>
+
+            <tr class="tr">
+                <th class="th">学院</th>
+                <td class="td_middle" colspan="2">
+                    <input autocomplete="off" type="text" name="collage"/>
+                </td>
+
+                <th class="th">班级</th>
+                <td class="td_short_plus" colspan="2">
+                    <input id="class" autocomplete="off" type="text" name="classes" placeholder="如：16蒙班"/>
+                </td>
             </tr>
-            <tr>
-                <th>学号</th>
-                <td class="td_middle"><input class="number" autocomplete="off" type="text" name="number"/></td>
-                <th>联系方式</th>
+
+            <tr class="tr">
+                <th class="th">学号</th>
+                <td class="td_middle">
+                    <input class="number" autocomplete="off" type="text" name="number"/>
+                </td>
+
+                <th class="th">联系方式</th>
                 <td id="td_middle_plus" colspan="3">
                     <input id="email" autocomplete="off" type="text" name="email" placeholder="邮箱"/>
                     <br>
                     <input id="tel" autocomplete="off" type="text" name="phone_number" placeholder="手机号"/>
                 </td>
             </tr>
-            <tr>
-                <th>自我简述</th>
-                <td colspan="6" class="td_long"><textarea id="aboutme" maxlength="340" name="self_description"></textarea></td>
+
+            <tr class="tr">
+                <th class="th">自我简述</th>
+                <td colspan="6" class="td_long">
+                    <textarea id="aboutme" maxlength="340" name="self_description"></textarea>
+                </td>
             </tr>
-            <tr><th>入社理由</th>
-                <td colspan="6" class="td_long"><textarea id="reason" maxlength="340" name="reason"></textarea></td></tr>
+
+            <tr class="tr">
+                <th class="th">入社理由</th>
+                <td colspan="6" class="td_long">
+                    <textarea id="reason" maxlength="340" name="reason"></textarea>
+                </td>
+            </tr>
         </table>
+
         <input id="submit" type="submit" value="提交申请">
     </form>
 </div>
@@ -264,6 +319,15 @@
         版权所有 © 内蒙古师范大学机器人创新实验室
     </p>
 </footer>
-</body>
 
+<script>
+    var opts4={
+        'targetId':'date4',
+        'hms':'off',
+        'min':'1970-01-01 00:00:00',//最大时间
+        'max':'2010-01-01 00:00:00'//最小时间
+    };
+    xvDate(opts4);
+</script>
+</body>
 </html>

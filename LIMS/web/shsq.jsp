@@ -10,9 +10,6 @@
     <link rel="stylesheet" href="css/bace.css" type="text/css">
 
     <style>
-        #line{
-            border-bottom: gainsboro solid 1px;
-        }
         .manage_daohang {
             margin: 0 auto;
             width: 150px;
@@ -65,6 +62,19 @@
         .form form table th {
             width: 100px;
             height: 50px;
+        }
+        .td_center {
+            text-align: center;
+        }
+        #aboutme {
+            text-indent: 2em;
+            vertical-align: top;
+            padding: 5px;
+        }
+        #reason {
+            text-indent: 2em;
+            vertical-align: top;
+            padding: 5px;
         }
         .td_short {
             width: 60px;
@@ -125,8 +135,6 @@
     <img src="image/logo.jpg" alt="内蒙古师范大学logo">
 </header>
 
-<p id="line"></p>
-
 <div class="manage_daohang">
     <ul>
         <a href="admin.jsp"><li>首页</li></a>
@@ -136,6 +144,7 @@
         <a href=""><li>值日表管理</li></a>
         <a href="${pageContext.request.contextPath}/applyUserServlet"><li>审核申请</li></a>
         <a href=""><li>留言管理</li></a>
+        <a href="${pageContext.request.contextPath}/index.jsp"><li>返回主页</li></a>
     </ul>
 </div>
 
@@ -146,25 +155,25 @@
             <table>
                 <tr>
                     <th>姓名</th>
-                    <td class="td_middle">${application.name}</td>
+                    <td class="td_middle td_center">${application.name}</td>
                     <th>性别</th>
-                    <td class="td_short">${application.gender}</td>
+                    <td class="td_short td_center">${application.gender}</td>
                     <th>出生年月</th>
-                    <td class="td_short_plus">${application.birthday}</td>
+                    <td class="td_short_plus td_center">${application.birthday}</td>
                     <th rowspan="4" id="td_picture">生活照</th>
                 </tr>
                 <tr>
                     <th>籍贯</th>
-                    <td colspan="5">${application.address}</td>
+                    <td colspan="5" class="td_center">${application.province}${application.city}${application.district}</td>
                 </tr>
                 <tr><th>学院</th>
-                    <td class="td_middle" colspan="2">${application.collage}</td>
+                    <td class="td_middle td_center" colspan="2">${application.collage}</td>
                     <th>班级</th>
-                    <td class="td_short_plus" colspan="2">${application.classes}</td>
+                    <td class="td_short_plus td_center" colspan="2">${application.classes}</td>
                 </tr>
                 <tr>
                     <th>学号</th>
-                    <td class="td_middle">${application.number}</td>
+                    <td class="td_middle td_center">${application.number}</td>
                     <th>联系方式</th>
                     <td id="td_middle_plus" colspan="3">
                         邮箱：${application.email}
@@ -174,10 +183,10 @@
                 </tr>
                 <tr>
                     <th>自我简述</th>
-                    <td colspan="6" class="td_long">${application.self_description}</td>
+                    <td colspan="6" class="td_long" id="aboutme">${application.self_description}</td>
                 </tr>
                 <tr><th>入社理由</th>
-                    <td colspan="6" class="td_long">${application.reason}</td>
+                    <td colspan="6" class="td_long" id="reason">${application.reason}</td>
                 </tr>
             </table>
             <a href="javascript:disagreedApplication(${application.a_id});">拒绝</a>

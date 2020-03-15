@@ -4,6 +4,7 @@
 }
 a,a:link,a:visited,a:hover,a:active {
     text-decoration: none;
+    color: black;
 }
 .top {
     background: linear-gradient(#eeeeee 0%,white 100%);
@@ -76,17 +77,16 @@ header img {
 .menu ul li ul li a {
     width: 165px;
     height: 35px;
+    line-height: 35px;
     background: white;
     padding-left: 15px;
     text-align: left;
-    line-height: 40px;
     color: #555555;
     border-radius: 5px;
 }
 .menu ul li ul li a:hover {
     background: #f5f5f5;
     color: #0069cc;
-
 }
 .menu ul li:hover ul {
     display:block;
