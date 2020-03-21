@@ -24,13 +24,11 @@ public class AddUserServlet extends HttpServlet {
         //获取请求参数列表
         Map<String, String[]> parameterMap = request.getParameterMap();
 
-        //封装对象（使用了spring的BeanUtils.populate()方法封装map）
+        //封装对象（使用spring的BeanUtils.populate()方法封装map）
         Application application = new Application();
         try {
             BeanUtils.populate(application, parameterMap);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
+        } catch (IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
 

@@ -25,7 +25,7 @@ public class ApplyAgreedServlet extends HttpServlet {
         service.applyAgreedDelete(a_id);
 
         //重定向回applyUserServlet
-        response.sendRedirect("/applyUserServlet");
+        response.sendRedirect("/applyUserByPageServlet");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

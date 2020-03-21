@@ -3,6 +3,7 @@ package service.implement;
 import dao.UserDao;
 import dao.implement.UserDaoImplement;
 import domain.Application;
+import domain.Page;
 import domain.User;
 import service.UserService;
 import java.util.List;
@@ -78,5 +79,35 @@ public class UserServiceImplement implements UserService {
     @Override
     public void addLastTimeLogin(int id) {
         dao.addLastTimeLogin(id);
+    }
+
+    //分页
+    @Override
+    public Page<Application> findApplyUserByPage(String _currentPage, String _rows) {
+
+        //类型转换
+        int currentPage = Integer.parseInt(_currentPage);
+        int rows = Integer.parseInt(_rows);
+
+        //创建空的Page对象
+        Page<Application> Page = new Page<Application>();
+        //设置参数
+        Page.setCurrentPage(currentPage);
+        Page.setRows(rows);
+
+        //调用dao 查询总记录数
+        int totalCount = dao.findTotalCount();
+        Page.setTotalCount(totalCount);
+
+        //调用dao 查询List集合
+        //计算开始的记录索引
+        int start = (currentPage - 1) * rows;
+        List<Application> list = dao.findByPage(start, rows);
+        Page.setList(list);
+
+        //计算总页码
+        int totalPage = (totalCount % rows) == 0 ? totalCount / rows : (totalCount / rows) + 1;
+        Page.setTotalPage(totalPage);
+        return Page;
     }
 }

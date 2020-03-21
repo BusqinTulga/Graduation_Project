@@ -10,7 +10,9 @@ public class User {
     private String name;
     private String gender;
     private String age;
-    private String address;
+    private String province;
+    private String city;
+    private String district;
     private String classes;
     private String phone_number;
     private String email;
@@ -59,12 +61,28 @@ public class User {
         this.age = age;
     }
 
-    public String getAddress() {
-        return address;
+    public String getProvince() {
+        return province;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
     }
 
     public String getClasses() {
@@ -131,7 +149,9 @@ public class User {
                 ", name='" + name + '\'' +
                 ", gender='" + gender + '\'' +
                 ", age='" + age + '\'' +
-                ", address='" + address + '\'' +
+                ", province='" + province + '\'' +
+                ", city='" + city + '\'' +
+                ", district='" + district + '\'' +
                 ", classes='" + classes + '\'' +
                 ", phone_number='" + phone_number + '\'' +
                 ", email='" + email + '\'' +

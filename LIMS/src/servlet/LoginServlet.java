@@ -29,10 +29,7 @@ public class LoginServlet extends HttpServlet {
         User loginUser = new User();
         try {
             BeanUtils.populate(loginUser, map);
-        } catch (IllegalAccessException e) {
-            System.out.println("try { BeanUtils.populate(loginUser, map); }");
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
+        } catch (IllegalAccessException | InvocationTargetException e) {
             System.out.println("try { BeanUtils.populate(loginUser, map); }");
             e.printStackTrace();
         }

@@ -64,7 +64,7 @@ public class AdminFilter implements Filter {
                     //设置编码 为统一resp和jsp的编码
                     resp.setContentType("text/html; charset=UTF-8");
                     PrintWriter writer = resp.getWriter();
-                    writer.print("<script>alert('管理员用户才可预览！');window.location.href='/login.jsp';</script>");
+                    writer.print("<script>alert('管理员用户才可访问！');window.location.href='/login.jsp';</script>");
                     writer.close();
 
                     //转发到login.jsp

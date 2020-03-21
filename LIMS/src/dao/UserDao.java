@@ -40,5 +40,9 @@ public interface UserDao {
     //添加最后登录时间
     void addLastTimeLogin(int id);
 
+    //查询总记录数
+    int findTotalCount();
 
+    //分页查询每页记录
+    List<Application> findByPage(int start, int rows);
 }

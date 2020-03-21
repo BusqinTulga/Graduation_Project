@@ -59,11 +59,12 @@ public class UserDaoImplement implements UserDao {
     @Override
     public void addUser(Application application) {
         //定义sql
-        String sql = "insert into application values(null,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into application values(null,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         //执行sql
         template.update(
                 sql, application.getNumber(), application.getName(), application.getGender(), application.getBirthday(),
-                application.getAddress(),application.getCollage(), application.getClasses(), application.getPhone_number(), application.getEmail(),
+                application.getProvince(),application.getCity(),application.getDistrict(),application.getCollage(),
+                application.getClasses(), application.getPhone_number(), application.getEmail(),
                 application.getSelf_description(), application.getReason()
         );
     }
@@ -94,9 +95,9 @@ public class UserDaoImplement implements UserDao {
     public void applyAgreedInsert(int a_id) {
         //定义添加sql
         String sql = "insert into " +
-                "user(number, name, gender, birthday, address, collage, classes, phone_number, email, self_description, reason) " +
+                "user(number, name, gender, birthday, province, city, district, collage, classes, phone_number, email, self_description, reason) " +
                 "select " +
-                "number, name, gender, birthday, address, collage, classes, phone_number, email, self_description, reason " +
+                "number, name, gender, birthday, province, city, district, collage, classes, phone_number, email, self_description, reason " +
                 "from application where a_id = ?";
         //执行添加sql
         template.update(sql, a_id);
@@ -136,5 +137,25 @@ public class UserDaoImplement implements UserDao {
         String sql = "update user set last_time_login = now() where id = ?";
         //执行sql
         template.update(sql, id);
+    }
+
+    //查询总记录数
+    @Override
+    public int findTotalCount() {
+        //定义sql
+        String sql = "select count(*) from Application";
+        //执行sql
+        Integer integer = template.queryForObject(sql, Integer.class);
+        return integer;
+    }
+
+    //分页查询每页记录
+    @Override
+    public List<Application> findByPage(int start, int rows) {
+        //定义sql
+        String sql = "select * from Application limit ? , ?";
+        //执行sql
+        List<Application> list = template.query(sql, new BeanPropertyRowMapper<Application>(Application.class), start, rows);
+        return list;
     }
 }

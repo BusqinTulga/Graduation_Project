@@ -1,6 +1,7 @@
 package service;
 
 import domain.Application;
+import domain.Page;
 import domain.User;
 import java.util.List;
 
@@ -39,4 +40,7 @@ public interface UserService {
 
     //添加最后登录时间
     void addLastTimeLogin(int id);
+
+    //分页
+    Page<Application> findApplyUserByPage(String _currentPage, String _rows);
 }

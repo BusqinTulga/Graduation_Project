@@ -22,7 +22,7 @@ public class ApplyDisagreedServlet extends HttpServlet {
         service.applyDisagreed(a_id);
 
         //重定向回userListServlet
-        response.sendRedirect("/applyUserServlet");
+        response.sendRedirect("/applyUserByPageServlet");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

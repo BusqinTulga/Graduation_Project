@@ -6,7 +6,9 @@ public class Application {
     private String name;
     private String gender;
     private String birthday;
-    private String address;
+    private String province;
+    private String city;
+    private String district;
     private String collage;
     private String classes;
     private String number;
@@ -47,12 +49,28 @@ public class Application {
         this.birthday = birthday;
     }
 
-    public String getAddress() {
-        return address;
+    public String getProvince() {
+        return province;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
     }
 
     public String getCollage() {
@@ -109,5 +127,25 @@ public class Application {
 
     public void setReason(String reason) {
         this.reason = reason;
+    }
+
+    @Override
+    public String toString() {
+        return "Application{" +
+                "a_id=" + a_id +
+                ", name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", province='" + province + '\'' +
+                ", city='" + city + '\'' +
+                ", district='" + district + '\'' +
+                ", collage='" + collage + '\'' +
+                ", classes='" + classes + '\'' +
+                ", number='" + number + '\'' +
+                ", email='" + email + '\'' +
+                ", phone_number='" + phone_number + '\'' +
+                ", self_description='" + self_description + '\'' +
+                ", reason='" + reason + '\'' +
+                '}';
     }
 }
