@@ -93,7 +93,12 @@
         </li>
         <li><a href="login.jsp">登录</a></li>
         <li><a href="jrwm.jsp">加入我们</a></li>
-        <li><a href="lxwm.jsp">联系我们</a></li>
+        <li>
+            <a href="lxwm.jsp">联系我们</a>
+            <ul>
+                <li><a href="nmly.jsp">匿名留言</a></li>
+            </ul>
+        </li>
     </ul>
 </div>
 

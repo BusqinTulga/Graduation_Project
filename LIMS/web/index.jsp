@@ -60,6 +60,7 @@
             &nbsp;|&nbsp;
             <a href="${pageContext.request.contextPath}/logoutServlet">注销</a>
           </c:when>
+
           <c:otherwise>
             <!-- 已登录 普通用户 -->
             ${user.name}你好！你的上次登录时间是：<fmt:formatDate value="${user.last_time_login}" pattern="yyyy-MM-dd HH:mm:ss"/>
@@ -120,8 +121,12 @@
     </li>
     <li><a href="login.jsp">登录</a></li>
     <li><a href="jrwm.jsp">加入我们</a></li>
-    <li><a href="lxwm.jsp">联系我们</a></li>
-    <li><a href="admin.jsp">管理系统</a></li>
+    <li>
+      <a href="lxwm.jsp">联系我们</a>
+      <ul>
+        <li><a href="nmly.jsp">匿名留言</a></li>
+      </ul>
+    </li>
   </ul>
 </div>
 

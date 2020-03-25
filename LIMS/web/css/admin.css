@@ -1,0 +1,28 @@
+/*侧面导航栏 开始*/
+.admin_menu {
+    margin: 0 auto;
+    width: 150px;
+    height: 500px;
+    text-align: center;
+    background: #0069cc;
+    float: left;
+}
+.admin_menu ul {
+    list-style: none;
+    display: inline-block;
+    color: white;
+}
+.admin_menu ul a {
+    color: white;
+}
+.admin_menu ul li {
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    float: left;
+}
+.admin_menu ul li:hover {
+    background: orange;
+    color: white;
+}
+/*侧面导航栏 结束*/

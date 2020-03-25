@@ -11,42 +11,23 @@
     <link rel="stylesheet" href="css/admin.css" type="text/css">
 
     <style>
-        .cyxx_table table {
+        .message_table table {
             border-collapse: collapse;
+            width: 500px;
+            margin-left: 50px;
         }
-        .cyxx_table table th, tr, td {
-            height: 20px;
-            white-space: nowrap;
-        }
-        .cyxx_table table th {
-            width: 80px;
-            padding: 5px 0;
+
+        .message_table table th {
             background: lightblue;
             border: lightblue solid 1px;
+            padding: 5px 0;
         }
-        .cyxx_table table tr:hover {
+        .message_table table tr:hover {
             background: #f7f7f7;
         }
-        .cyxx_table table td {
+        .message_table table td {
             border: gainsboro solid 1px;
-            width: 40px;
-            text-align: center;
             padding: 5px 10px;
-        }
-        .cyxx_table table a {
-            display: inline-block;
-            width: 50px;
-            height: 30px;
-            line-height: 30px;
-            background: white;
-            border: gainsboro solid 1px;
-            border-radius: 4px;
-            outline: none;
-        }
-        .cyxx_table table a:hover {
-            color: #333;
-            background-color: #e6e6e6;
-            border-color: #adadad;
         }
     </style>
 </head>
@@ -88,47 +69,17 @@
     </ul>
 </div>
 
-<div class="cyxx_table">
+<div class="message_table">
     <table>
         <tr>
-            <th>编号</th>
-            <th>学号</th>
-            <th>姓名</th>
-            <th>性别</th>
-            <th>年龄</th>
-            <th>籍贯</th>
-            <th>班级</th>
-            <th>手机号</th>
-            <th>邮箱</th>
-            <th>权限</th>
-            <th>操作</th>
+            <th>留言列表</th>
         </tr>
-
-        <c:forEach items="${member}" var="user" varStatus="s">
+        <c:forEach items="${message}" var="message">
             <tr>
-                <td>${s.count}</td>
-                <td>${user.number}</td>
-                <td>${user.name}</td>
-                <td>${user.gender}</td>
-                <td>${user.age}</td>
-                <td>${user.province}${user.city}${user.district}</td>
-                <td>${user.classes}</td>
-                <td>${user.phone_number}</td>
-                <td>${user.email}</td>
-                <td>${user.authoritiy}级</td>
-                <td><a href="javascript:deleteUser(${user.id});">删除</a></td>
+                <td>${message.message}</td>
             </tr>
         </c:forEach>
     </table>
 </div>
-
-<script>
-    //确定删除提示框
-    function deleteUser(id) {
-        if (confirm("您确定要删除成员吗？")) {
-            location.href = "/deleteUserServlet?id="+id;
-        }
-    }
-</script>
 </body>
 </html>

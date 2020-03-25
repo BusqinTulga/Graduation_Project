@@ -4,16 +4,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>研究方向</title>
+    <meta charset="UTF-8" user-scalable="0">
+    <title>留言板</title>
 
     <link rel="stylesheet" href="css/bace.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
 
     <style>
-        #li_ {
-            color: #0069cc;
-            font-weight: bold;
+        .lyb {
+            margin: 70px auto 0;
+            text-align: center;
+        }
+        .lyb textarea {
+            width: 500px;
+            height: 100px;
+            margin-top: 30px;
+            margin-bottom: 50px;
+            padding: 5px;
+            text-indent: 2em;
+            resize: none;
+        }
+        .lyb input {
+            border: gainsboro solid 1px;
+            display: block;
+            outline: none;
+            width: 70px;
+            height: 35px;
+            border-radius: 3px;
+            margin: 0 auto;
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
@@ -102,36 +124,13 @@
     </ul>
 </div>
 
-<div class="big">
-    <div class="picture">
-        图片集
-    </div>
-
-    <div class="weizhi">
-        <p>
-            当前位置：<a href="index.jsp">首页</a> > <a href="yjfx.jsp">研究方向</a> > <a href="yjfx.jsp">1</a>
-        </p>
-    </div>
-
-    <div class="main">
-        <div class="list_left">
-            <p id="li_head">
-                研究方向
-            </p>
-            <ul>
-                <a href="yjfx.jsp"><li id="li_" class="li_item">1</li></a>
-                <a href=""><li class="li_item">2</li></a>
-            </ul>
-        </div>
-
-        <div class="content_right">
-            <h3>1</h3>
-            <span></span>
-            <p>
-                这里是研究方向...
-            </p>
-        </div>
-    </div>
+<div class="lyb">
+    <form action="${pageContext.request.contextPath}/leaveMessageServlet" method="post">
+        <h3>匿名留言</h3>
+        <textarea name="message" maxlength="200"></textarea>
+        <br>
+        <input type="submit" value="提交">
+    </form>
 </div>
 
 <footer>
