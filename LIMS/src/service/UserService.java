@@ -1,6 +1,7 @@
 package service;
 
 import domain.Application;
+import domain.Message;
 import domain.Page;
 import domain.User;
 import java.util.List;
@@ -43,4 +44,10 @@ public interface UserService {
 
     //分页
     Page<Application> findApplyUserByPage(String _currentPage, String _rows);
+
+    //留言上传
+    void leaveMessage(String message);
+
+    //查询留言
+    List<Message> findMessage();
 }

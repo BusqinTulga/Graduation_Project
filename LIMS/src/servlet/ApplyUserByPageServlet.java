@@ -22,8 +22,9 @@ public class ApplyUserByPageServlet extends HttpServlet {
         String _currentPage = request.getParameter("currentPage");
         //获取每页显示的条数
         String _rows = request.getParameter("rows");
+
         //未设置参数时 自动设置为...
-        if (_currentPage == null || _currentPage.equals("")) {
+        if (_currentPage == null || _currentPage.equals("") || Integer.parseInt(_currentPage) < 1) {
             _currentPage = "1";
         }
         if (_rows == null || _rows.equals("")) {

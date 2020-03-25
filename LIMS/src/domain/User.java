@@ -2,7 +2,7 @@ package domain;
 
 import java.sql.Timestamp;
 
-//用户的JavaBean（实体类）
+//user对象（JavaBean）（实体类）
 public class User {
 
     private int id;

@@ -1,6 +1,8 @@
 package domain;
 
+//admin对象
 public class Sys {
+
     private int view_times;
 
     public int getView_times() {

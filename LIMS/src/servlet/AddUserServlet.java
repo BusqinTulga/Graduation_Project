@@ -37,7 +37,7 @@ public class AddUserServlet extends HttpServlet {
         service.addUser(application);
 
         //提示信息
-        //设置编码 为统一resp和jsp的编码
+        //设置编码 为统一response和jsp的编码
         response.setContentType("text/html; charset=UTF-8");
         PrintWriter writer = response.getWriter();
         writer.print("<script>alert('已提交申请，请敬候佳音！');window.location.href='/index.jsp';</script>");

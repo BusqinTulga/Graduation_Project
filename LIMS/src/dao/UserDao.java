@@ -1,6 +1,7 @@
 package dao;
 
 import domain.Application;
+import domain.Message;
 import domain.User;
 import java.util.List;
 
@@ -45,4 +46,10 @@ public interface UserDao {
 
     //分页查询每页记录
     List<Application> findByPage(int start, int rows);
+
+    //留言上传
+    void leaveMessage(String message);
+
+    //查询留言
+    List<Message> findMessage();
 }

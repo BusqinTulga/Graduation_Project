@@ -1,5 +1,6 @@
 package domain;
 
+//application对象
 public class Application {
 
     private int a_id;

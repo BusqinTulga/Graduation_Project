@@ -3,6 +3,7 @@ package service.implement;
 import dao.UserDao;
 import dao.implement.UserDaoImplement;
 import domain.Application;
+import domain.Message;
 import domain.Page;
 import domain.User;
 import service.UserService;
@@ -109,5 +110,17 @@ public class UserServiceImplement implements UserService {
         int totalPage = (totalCount % rows) == 0 ? totalCount / rows : (totalCount / rows) + 1;
         Page.setTotalPage(totalPage);
         return Page;
+    }
+
+    //留言上传
+    @Override
+    public void leaveMessage(String message) {
+        dao.leaveMessage(message);
+    }
+
+    //查询留言
+    @Override
+    public List<Message> findMessage() {
+        return dao.findMessage();
     }
 }

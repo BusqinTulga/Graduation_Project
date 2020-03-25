@@ -2,6 +2,7 @@ package dao.implement;
 
 import dao.UserDao;
 import domain.Application;
+import domain.Message;
 import domain.User;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -60,7 +61,7 @@ public class UserDaoImplement implements UserDao {
     public void addUser(Application application) {
         //定义sql
         String sql = "insert into application values(null,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-        //执行sql
+        //        //执行sql
         template.update(
                 sql, application.getNumber(), application.getName(), application.getGender(), application.getBirthday(),
                 application.getProvince(),application.getCity(),application.getDistrict(),application.getCollage(),
@@ -86,7 +87,6 @@ public class UserDaoImplement implements UserDao {
         String sql = "delete from application where a_id = ?";
         //执行sql
         template.update(sql, a_id);
-
     }
 
     //同意申请
@@ -157,5 +157,24 @@ public class UserDaoImplement implements UserDao {
         //执行sql
         List<Application> list = template.query(sql, new BeanPropertyRowMapper<Application>(Application.class), start, rows);
         return list;
+    }
+
+    //留言上传
+    @Override
+    public void leaveMessage(String message) {
+        //定义sql
+        String sql = "insert into message values (?)";
+        //执行sql
+        template.update(sql, message);
+    }
+
+    //查询留言
+    @Override
+    public List<Message> findMessage() {
+        //定义sql
+        String sql = "select * from message";
+        //执行sql
+        List<Message> messages = template.query(sql, new BeanPropertyRowMapper<Message>(Message.class));
+        return messages;
     }
 }

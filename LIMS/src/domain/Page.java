@@ -4,6 +4,7 @@ import java.util.List;
 
 //分页查询对象
 public class Page<T> {
+
     private int totalCount; //总记录数
     private int totalPage;  //总页码
     private List<T> list;  //每页的数据
